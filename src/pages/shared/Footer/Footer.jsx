@@ -8,10 +8,10 @@ const Footer = () => {
     <footer className="bg-gradient-to-br from-teal-600 to-teal-900 text-slate-100 mt-8 lg:mt-32">
       <div className="footer p-8 pb-4 md:pt-12 md:pb-8 max-w-7xl mx-auto grid gap:8 lg:gap-18 lg:grid-cols-5">
         <div className="col-span-2">
-          <h3 className="flex gap-3 items-center text-3xl text-slate-50 font-bold">
+          <Link to="/" className="flex gap-3 items-center text-3xl text-slate-50 font-bold">
             <img className="h-10 w-10 rounded-full ring-2 ring-offset-2 ring-teal-700" src={Logo} alt="Logo" />
             <span className='flex items-center banner-highlighted-text !text-2xl md:!text-3xl'>Language School</span>
-          </h3>
+          </Link>
           <p className="text-justify mt-2 mb-2">
             Unlock the World: Embrace Language at Language School!
           </p>

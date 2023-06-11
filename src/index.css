@@ -54,7 +54,7 @@
 /* Banner Title */
 .banner-title {
   font-weight: 800;
-  font-size: 64px;
+  font-size: 60px;
   line-height: 80px;
   color: #fff;
 }
@@ -82,7 +82,7 @@
   line-height: 30px;
   /* color: #757575; */
   text-align: justify;
-  background: linear-gradient(117.42deg, #01c5c8 -8.66%, #B6EBFE 89.98%);
+  background: linear-gradient(117.42deg, #80fdff -8.66%, #B6EBFE 89.98%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -91,7 +91,7 @@
 
 /* Common Banner Description */
 .common-banner-description {
-  background: linear-gradient(117.42deg, #01c5c8 -8.66%, #B6EBFE 89.98%);
+  background: linear-gradient(117.42deg, #70fdff -8.66%, #B6EBFE 89.98%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -107,7 +107,7 @@
 /* Custom Text Color */
 .custom-text {
   text-align: justify;
-  background: linear-gradient(117.42deg, #01c5c8 -8.66%, #B6EBFE 89.98%);
+  background: linear-gradient(117.42deg, #68fcff -8.66%, #B6EBFE 89.98%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -240,8 +240,8 @@
 @media screen and (max-width: 767px) {
   /* Banner Title */
   .banner-title {
-    font-size: 44px;
-    line-height: 56px;
+    font-size: 36px;
+    line-height: 48px;
     text-align: center;
   }
 

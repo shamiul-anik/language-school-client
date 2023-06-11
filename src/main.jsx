@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './routes/Routes.jsx';
 import { ToastContainer, Zoom } from 'react-toastify';
-// import AuthProvider from './providers/AuthProvider.jsx';
+import AuthProvider from './providers/AuthProvider.jsx';
 import 'react-toastify/dist/ReactToastify.css';
 // import '@smastrom/react-rating/style.css';
 import './index.css';
@@ -15,9 +15,9 @@ const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      {/* <AuthProvider> */}
+      <AuthProvider>
         <RouterProvider router={router}></RouterProvider>
-      {/* </AuthProvider> */}
+      </AuthProvider>
     </QueryClientProvider>
 
     {/* React Toastify */}

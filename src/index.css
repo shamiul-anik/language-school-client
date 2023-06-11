@@ -33,7 +33,7 @@
 *::-webkit-scrollbar-thumb {
 	background: #cbd1d6;
 	/* background: linear-gradient(90deg, #bfc5ca 0%, #a2a8ac 61%, #949a9e 100%); */
-	background: linear-gradient(90deg, #344788 0%, #1a2a5d 61%, #141A41 100%);
+	background: linear-gradient(90deg, #02c7ca 0%, #03d6da 61%, #027f81 100%);
   /* background: linear-gradient(117.42deg, #6932ff -8.66%, #B6EBFE 89.98%); */
 	border-radius: 10px;
 	transition: all 0.3s;
@@ -41,57 +41,10 @@
 
 *::-webkit-scrollbar-thumb:hover {
 	background: #cbd1d6;
-	background: linear-gradient(90deg, #1a2a5c 0%, #1a2d69 61%, #0f1439 100%);
+	background: linear-gradient(90deg, #01c1c4 0%, #01c5c8 61%, #016a6c 100%);
 	/* background: linear-gradient(90deg, #989da0 0%, #888e92 61%, #858b8f 100%); */
 }
 /* ===== Scrollbar CSS End ===== */
-
-/* Custom Primary Button */
-/* Large */
-/* .primary-button-lg {
-  background: linear-gradient(90deg, #6a7cf4 0%, #6275ed 100%);
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 28px;
-  color: #FFFFFF;
-  padding: 18px 28px;
-  transition: all 0.3s;
-} */
-
-/* Medium */
-/* .primary-button-md {
-  background: linear-gradient(90deg, #6a7cf4 0%, #6275ed 100%);
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 20px;
-  text-align: center;
-  color: #FFFFFF;
-  padding: 10px 24px;
-  transition: all 0.3s;
-} */
-
-/* Small */
-/* .primary-button-sm {
-  background: linear-gradient(90deg, #6a7cf4 0%, #6275ed 100%);
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 20px;
-  text-align: center;
-  color: #FFFFFF;
-  padding: 8px 16px;
-  transition: all 0.3s;
-} */
-
-/* Primary and Secondary Button Hover */
-/* .primary-button-lg:hover,
-.primary-button-md:hover,
-.primary-button-sm:hover {
-  cursor: pointer;
-  background: linear-gradient(90deg, #6275ed 0%, #5567de 100%);
-} */
 
 /* Subscribe Button */
 .subscribe-btn {
@@ -107,7 +60,8 @@
 }
 
 .banner-highlighted-text {
-  background: linear-gradient(99.45deg, #7A68FD -9.1%, #FBD0FE 21.61%, #AAF1FE 55.69%);
+  /* background: linear-gradient(99.45deg, #027f81 -9.1%, #01c5c8 21.61%, #AAF1FE 55.69%); */
+  background: linear-gradient(99.45deg, #1dfbff -9.1%, #a0feff 21.61%, #94eeff 55.69%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -128,7 +82,7 @@
   line-height: 30px;
   /* color: #757575; */
   text-align: justify;
-  background: linear-gradient(117.42deg, #AD91FD -8.66%, #B6EBFE 89.98%);
+  background: linear-gradient(117.42deg, #01c5c8 -8.66%, #B6EBFE 89.98%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -137,7 +91,7 @@
 
 /* Common Banner Description */
 .common-banner-description {
-  background: linear-gradient(117.42deg, #AD91FD -8.66%, #B6EBFE 89.98%);
+  background: linear-gradient(117.42deg, #01c5c8 -8.66%, #B6EBFE 89.98%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -147,13 +101,13 @@
 /* Custom Border */
 .custom-border {
   border: 5px solid;
-  border-image-source: linear-gradient(99.45deg, #7A68FD -9.1%, #FBD0FE 21.61%, #AAF1FE 55.69%);
+  border-image-source: linear-gradient(99.45deg, #027f81 -9.1%, #FBD0FE 21.61%, #AAF1FE 55.69%);
 }
 
 /* Custom Text Color */
 .custom-text {
   text-align: justify;
-  background: linear-gradient(117.42deg, #AD91FD -8.66%, #B6EBFE 89.98%);
+  background: linear-gradient(117.42deg, #01c5c8 -8.66%, #B6EBFE 89.98%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Loader from "../pages/shared/Loader/Loader";
 
 const MainLayout = lazy(() => import("../layouts/MainLayout"));
-// const ErrorPage = lazy(() => import("../pages/ErrorPage/ErrorPage"));
+const ErrorPage = lazy(() => import("../pages/shared/ErrorPage/ErrorPage"));
 const Home = lazy(() => import("../pages/Home/Home"));
 
 // const PrivateRoute = lazy(() => import("./PrivateRoute"));
@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <MainLayout></MainLayout>,
-		// errorElement: <ErrorPage></ErrorPage>,
+		errorElement: <ErrorPage></ErrorPage>,
 		children: [
 			{
 				path: '/',

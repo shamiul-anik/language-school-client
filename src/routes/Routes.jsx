@@ -8,8 +8,8 @@ const ErrorPage = lazy(() => import("../pages/shared/ErrorPage/ErrorPage"));
 const Home = lazy(() => import("../pages/Home/Home"));
 
 // const PrivateRoute = lazy(() => import("./PrivateRoute"));
-// const Login = lazy(() => import("../pages/Authentication/Login/Login"));
-// const Registration = lazy(() => import("../pages/Authentication/Registration/Registration"));
+const Login = lazy(() => import("../pages/Authentication/Login/Login"));
+const Registration = lazy(() => import("../pages/Authentication/Registration/Registration"));
 // const PasswordReset = lazy(() => import("../pages/Authentication/PasswordReset/PasswordReset"));
 // const Profile = lazy(() => import("../pages/Authentication/Profile/Profile"));
 
@@ -23,14 +23,14 @@ export const router = createBrowserRouter([
 				path: '/',
 				element: <Suspense fallback={<Loader></Loader>}><Home></Home></Suspense>,
 			},
-			// {
-			// 	path: 'login',
-			// 	element: <Suspense fallback={<Loader></Loader>}><Login></Login></Suspense>
-			// },
-			// {
-			// 	path: 'registration',
-			// 	element: <Suspense fallback={<Loader></Loader>}><Registration></Registration></Suspense>
-			// },
+			{
+				path: 'login',
+				element: <Suspense fallback={<Loader></Loader>}><Login></Login></Suspense>
+			},
+			{
+				path: 'registration',
+				element: <Suspense fallback={<Loader></Loader>}><Registration></Registration></Suspense>
+			},
 			// {
 			// 	path: 'password-reset',
 			// 	element: <Suspense fallback={<Loader></Loader>}><PasswordReset></PasswordReset></Suspense>

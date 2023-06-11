@@ -86,8 +86,8 @@ const Header = () => {
 							}
 						</ul>
 					</div>
-					<Link to="/" className="flex gap-2 items-center btn px-0 btn-ghost normal-case font-extrabold text-2xl lg:text-3xl text-slate-700 hover:bg-inherit">
-						<img className="h-10 w-10 rounded-full ring-1 ring-offset-2 ring-green-800" src={Logo} alt="Logo" />
+					<Link to="/" className="flex gap-3 items-center btn px-0 btn-ghost normal-case font-extrabold text-2xl lg:text-3xl text-slate-700 hover:bg-inherit">
+						<img className="h-10 w-10 rounded-full ring-2 ring-offset-2 ring-teal-700" src={Logo} alt="Logo" />
 						<span className='flex items-center banner-highlighted-text'>Language School</span>
 					</Link>
 				</div>

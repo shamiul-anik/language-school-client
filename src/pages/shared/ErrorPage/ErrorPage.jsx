@@ -22,7 +22,7 @@ const ErrorPage = () => {
       </div>
       <div className="mt-12">
         <Link to="/">
-          <button type="button" className="flex gap-3 mx-auto md:mx-0 items-center justify-center text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-semibold rounded-lg text-xl px-5 py-4 text-center"><FaArrowLeft className='' /> Back to Main</button>
+          <button type="button" className="flex gap-3 mx-auto md:mx-0 items-center justify-center text-white bg-gradient-to-br from-teal-600 to-teal-700 ring-2 ring-offset-1 ring-teal-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-semibold rounded-lg text-xl px-5 py-4 text-center"><FaArrowLeft className='' /> Back to Main</button>
         </Link>
       </div>
     </div>

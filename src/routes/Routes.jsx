@@ -10,7 +10,7 @@ const Home = lazy(() => import("../pages/Home/Home"));
 // const PrivateRoute = lazy(() => import("./PrivateRoute"));
 const Login = lazy(() => import("../pages/Authentication/Login/Login"));
 const Registration = lazy(() => import("../pages/Authentication/Registration/Registration"));
-// const PasswordReset = lazy(() => import("../pages/Authentication/PasswordReset/PasswordReset"));
+const PasswordReset = lazy(() => import("../pages/Authentication/PasswordReset/PasswordReset"));
 // const Profile = lazy(() => import("../pages/Authentication/Profile/Profile"));
 
 export const router = createBrowserRouter([
@@ -31,10 +31,10 @@ export const router = createBrowserRouter([
 				path: 'registration',
 				element: <Suspense fallback={<Loader></Loader>}><Registration></Registration></Suspense>
 			},
-			// {
-			// 	path: 'password-reset',
-			// 	element: <Suspense fallback={<Loader></Loader>}><PasswordReset></PasswordReset></Suspense>
-			// },
+			{
+				path: 'password-reset',
+				element: <Suspense fallback={<Loader></Loader>}><PasswordReset></PasswordReset></Suspense>
+			},
 			// {
 			// 	path: 'profile',
 			// 	element: <Suspense fallback={<Loader></Loader>}><Profile></Profile></Suspense>

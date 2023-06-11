@@ -37,7 +37,7 @@ const Header = () => {
 	};
 
 	return (
-		<div className="bg-gradient-to-tr from-teal-600 to-teal-900 py-2">
+		<div className="bg-gradient-to-tr from-teal-600 to-teal-700 py-2">
 			<nav className={`navbar gap-4 ${user ? 'justify-between' : ''} max-w-7xl mx-auto`}>
 				<div className="navbar-start w-auto">
 					<div className="dropdown">

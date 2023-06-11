@@ -5,7 +5,7 @@ import { BiCurrentLocation } from "react-icons/bi";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-br from-teal-600 to-teal-900 text-slate-100 mt-8 lg:mt-32">
+    <footer className="bg-gradient-to-br from-teal-600 to-teal-700 text-slate-100 mt-8 lg:mt-32">
       <div className="footer p-8 pb-4 md:pt-12 md:pb-8 max-w-7xl mx-auto grid gap:8 lg:gap-18 lg:grid-cols-5">
         <div className="col-span-2">
           <Link to="/" className="flex gap-3 items-center text-3xl text-slate-50 font-bold">
@@ -58,7 +58,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      <div className="text-sm lg:text-base mx-auto mt-8 py-6 border-t border-slate-500 flex flex-col gap-2 justify-center items-center">
+      <div className="text-sm lg:text-base mx-auto mt-8 py-6 border-t border-t-2 border-teal-600 flex flex-col gap-2 justify-center items-center">
         <p className='text-center'>Copyright © 2023 Language School. All Rights Reserved.</p>
       </div>
     </footer>

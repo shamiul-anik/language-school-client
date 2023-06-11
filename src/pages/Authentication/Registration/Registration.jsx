@@ -170,14 +170,13 @@ const Registration = () => {
 						</div>
 						<div className="form-control mt-4">
 							<label className="label !justify-start text-md gap-2 cursor-pointer">
-								<input onChange={handleAcceptTerms} type="checkbox" className="checkbox checkbox-sm rounded-md border-gray-400 shadow-sm" id="terms" />
+								<input onChange={handleAcceptTerms} type="checkbox" className="checkbox checkbox-accent checkbox-sm rounded-md border-gray-400 shadow-sm" id="terms" />
 								<span htmlFor="terms" className="label-text ">Accept</span>
 								{/* To Open Modal */}
 								<label htmlFor="terms-modal" className=" link link-primary font-semibold transition-all hover:duration-200 text-blue-600 hover:text-blue-700"> Terms & Conditions.</label>
 							</label>
 						</div>
 						<div className="form-control mt-1">
-							{/* <button className="btn btn-primary text-lg" type="submit" disabled={!acceptTerms}>Register</button> */}
 							<button type="submit" className="flex gap-3 mx-auto md:mx-0 w-full items-center justify-center text-white bg-gradient-to-br from-teal-500 to-teal-700 ring-2 ring-offset-1 ring-teal-400 disabled:ring-slate-400 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-semibold rounded-lg text-lg px-8 py-2 text-center disabled:from-slate-300 disabled:to-slate-400 disabled:text-slate-600 tooltip tooltip-bottom" data-tip={!acceptTerms ? "Please Accept Terms & Conditions" : "Click to Register"} disabled={!acceptTerms}>Register</button>
 						</div>
 					</div>
@@ -187,20 +186,16 @@ const Registration = () => {
 					<Link to="/login" className='link link-primary font-semibold transition-all hover:duration-200 text-blue-600 hover:text-blue-700'>Login</Link>
 				</div>
 
-				{/* <div className='border-t border-slate-300 my-4 mx-6 md:mx-8'></div> */}
 				<div className="divider">OR</div>
 
 				<div className="!px-6 md:!px-8 !pt-3 card-body">
-					{/* <div className="form-control">
-						<button onClick={handleGoogleRegistration} className="btn btn-outline btn-primary text-lg">
-							<FaGoogle className="mr-2" /> Register with Google
-						</button>
-					</div>
-					<div className="form-control mt-1 mb-5">
-						<button onClick={handleGitHubRegistration} className="btn btn-outline btn-base text-lg">
-							<FaGithub className="mr-2" /> Register with GitHub
-						</button>
-					</div> */}
+					{/* 
+						<div className="form-control mt-1 mb-5">
+							<button onClick={handleGitHubRegistration} className="btn btn-outline btn-base text-lg">
+								<FaGithub className="mr-2" /> Register with GitHub
+							</button>
+						</div> 
+					*/}
 					<div className="form-control mt-1 mb-5">
 						<button onClick={handleGoogleRegistration} className="relative flex w-100 items-center justify-center p-0.5 overflow-hidden text-lg font-semibold text-blue-700 rounded-lg group bg-gradient-to-br from-blue-600 to-blue-500 group-hover:from-blue-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-2 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
 							<span className="flex items-center justify-center w-full px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">

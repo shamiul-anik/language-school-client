@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { toast } from 'react-toastify';
 import { useTitle } from '../../../hooks/useTitle';
+import { useForm } from 'react-hook-form';
 import Loader from '../../shared/Loader/Loader';
 
 const Login = () => {
@@ -11,6 +12,7 @@ const Login = () => {
 	useTitle("Login");
 
 	const { loading, setLoading, logIn, signInWithGoogle } = useContext(AuthContext);
+	const { register, handleSubmit, formState: { errors } } = useForm();
 
 	const [error, setError] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
@@ -26,19 +28,12 @@ const Login = () => {
 		return <Loader></Loader>;
 	}
 
-	const handleLogin = (event) => {
-		event.preventDefault();
-		const form = event.target;
-		const email = form.email.value;
-		const password = form.password.value;
-		
+	const onSubmit = (userInformation) => {
+		// console.log(userInformation);
 		setLoading(true);
-		
 		setError("");
 
-		console.log(email, password);
-
-		logIn(email, password)
+		logIn(userInformation.email, userInformation.password)
 			.then(result => {
 				const loggedUser = result.user;
 				console.log(loggedUser);
@@ -85,28 +80,30 @@ const Login = () => {
 
 				<p className="!px-6 md:!px-8 text-red-500 mt-2 text-center">{error}</p>
 				
-				<form onSubmit={handleLogin}>
+				<form onSubmit={handleSubmit(onSubmit)}>
 					<div className="!px-6 md:!px-8 !pt-2 card-body">
 						<div className="form-control">
 							<label className="label pl-0" htmlFor="email">
 								<span className="label-text text-lg">Email</span>
 							</label>
-							<input type="email" id="email" name="email" placeholder="Enter your email address" className="input input-bordered" required />
-							<p className="text-red-500 mt-2"></p>
+							<input type="email" {...register("email", { required: true })} id="email" name="email" placeholder="Enter your email address" className="input input-bordered" required />
+							{/* <p className="text-red-500 mt-2"></p> */}
+							{errors?.email && <p className="text-red-500 mt-2">Email is required!</p>} {/* Error Message */}
 						</div>
 						
 						<div className="relative form-control">
 							<label className="label pl-0" htmlFor="password">
 								<span className="label-text text-lg">Password</span>
 							</label>
-							<input type={showPassword ? "text" : "password"} id="password" name="password" placeholder="Enter your password" className="input input-bordered" autoComplete='true' required />
+							<input type={showPassword ? "text" : "password"} {...register("password", { required: true })} id="password" name="password" placeholder="Enter your password" className="input input-bordered" autoComplete='true' required />
 							<button onClick={handleShowPassword} className="btn btn-ghost absolute bottom-0 right-0 rounded-l-none">
 								{
 									showPassword ? <FaRegEyeSlash className='text-lg md:text-xl font-bold' /> : <FaRegEye className='text-lg md:text-xl font-bold' />
 								}
 							</button>
 						</div>
-						<p className="text-red-500 mt-2"></p>
+						{/* <p className="text-red-500 mt-2"></p> */}
+						{errors?.password && <p className="text-red-500 mt-2">Password is required!</p>} {/* Error Message */}
 						
 						<div className="text-md">
 							Forgot your password? &nbsp;

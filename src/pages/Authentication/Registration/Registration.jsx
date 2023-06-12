@@ -14,7 +14,7 @@ const Registration = () => {
 
 	const navigate = useNavigate();
 	const { createUser, logOut, signInWithGoogle } = useContext(AuthContext);
-	const { register, reset, getValues, handleSubmit, formState: { errors } } = useForm();
+	const { register, getValues, handleSubmit, formState: { errors } } = useForm();
 
 	const [error, setError] = useState("");
 	const [success, setSuccess] = useState("");

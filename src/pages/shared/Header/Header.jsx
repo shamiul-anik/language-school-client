@@ -62,15 +62,14 @@ const Header = () => {
 									</li>
 								</>
 							)}
-							{/* <li className="hover:cursor-pointer">
-								<NavLink to="/blog">Blog</NavLink>
-							</li>
-							<li className="hover:cursor-pointer">
-								<NavLink to="/contact">Contact</NavLink>
-							</li>
-							<li className="hover:cursor-pointer">
-								<NavLink to="/about">About</NavLink>
-							</li> */}
+							{/* 
+								<li className="hover:cursor-pointer">
+									<NavLink to="/contact">Contact</NavLink>
+								</li>
+								<li className="hover:cursor-pointer">
+									<NavLink to="/about">About</NavLink>
+								</li> 
+							*/}
 							{
 								!user && (
 									<>
@@ -147,15 +146,14 @@ const Header = () => {
 								</li>
 							</>
 						)}
-						{/* <li className="nav-item hover:cursor-pointer">
-							<NavLink to="/blog">Blog</NavLink>
-						</li>
-						<li className="nav-item hover:cursor-pointer">
-							<NavLink to="/contact">Contact</NavLink>
-						</li>
-						<li className="nav-item hover:cursor-pointer">
-							<NavLink to="/about">About</NavLink>
-						</li> */}
+						{/* 
+							<li className="nav-item hover:cursor-pointer">
+								<NavLink to="/contact">Contact</NavLink>
+							</li>
+							<li className="nav-item hover:cursor-pointer">
+								<NavLink to="/about">About</NavLink>
+							</li> 
+						*/}
 					</ul>
 				</div>
 
@@ -178,7 +176,7 @@ const Header = () => {
 							<div className="dropdown dropdown-end mt-1 ml-6">
 								<label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip tooltip-left" data-tip={currentUserName}>
 									<div className="w-10 rounded-full ring-2 ring-offset-2 ring-teal-400">
-										<img className='object-top' src={currentUserPhotoURL} alt={currentUserName} referrerPolicy="no-referrer" />
+										<img className='object-top' src={currentUserPhotoURL} alt={currentUserName} />
 									</div>
 								</label>
 								<ul tabIndex={0} className="mt-3 p-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 z-10">

@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { FaGoogle, FaRegEyeSlash, FaRegEye } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
+import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 import { updateProfile } from 'firebase/auth';
 import { useTitle } from '../../../hooks/useTitle';
@@ -12,76 +13,33 @@ const Registration = () => {
 	useTitle("Registration");
 
 	const navigate = useNavigate();
-
 	const { createUser, logOut, signInWithGoogle } = useContext(AuthContext);
+	const { register, reset, getValues, handleSubmit, formState: { errors } } = useForm();
 
 	const [error, setError] = useState("");
 	const [success, setSuccess] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
 	const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-	const [nameError, setNameError] = useState("");
-	const [emailError, setEmailError] = useState("");
-	const [passwordError, setPasswordError] = useState("");
-	const [confirmPasswordError, setConfirmPasswordError] = useState("");
-	// const [imageError, setImageError] = useState("");
 	const [acceptTerms, setAcceptTerms] = useState(false);
 
-	const handleRegistration = (event) => {
-		event.preventDefault();
-		const form = event.target;
-		const email = form.email.value;
-		const password = form.password.value;
-		const confirmPassword = form.confirmPassword.value;
-		const name = form.name.value;
-		const photoURL = form.photoURL.value;
-		// const image = form.image.files[0];
-		// console.log({ name, photoURL, email, password, image });
+	const onSubmit = (userInformation, event) => {
+		// console.log(userInformation);
+		delete userInformation.confirmPassword;
+		delete userInformation.passwordConfirmation;
+		console.log("After Deleting Password Confirmation: ", userInformation);
 
-		setSuccess("");
-		setError("");
-		setNameError("");
-		setEmailError("");
-		setPasswordError("");
-		setConfirmPasswordError("");
-		// setImageError("");
-
-		if (name.length < 1) {
-			setNameError("Name field can not be empty!");
-			return;
-		}
-
-		if (email.length < 1) {
-			setEmailError("Email field can not be empty!");
-			return;
-		}
-
-		if (password.length < 1) {
-			setPasswordError("Password field can not be empty!");
-			return;
-		}
-
-		if (password.length < 6) {
-			setPasswordError("Password should be at least 6 characters long!");
-			return;
-		}
-
-		if (password !== confirmPassword) {
-			setConfirmPasswordError("Password should match with confirm password!");
-			return;
-		}
-
-		createUser(email, password)
+		createUser(userInformation.email, userInformation.password)
 			.then(result => {
 				const currentUser = result.user;
 				console.log(currentUser);
-				if (name || photoURL) {
+				if (userInformation.name || userInformation.photoURL) {
 					console.log("inside update condition");
-					updateUserData(currentUser, name, photoURL);
+					updateUserData(currentUser, userInformation.name, userInformation.photoURL);
 				}
 				setSuccess("Registration successful!");
 				toast.success("Registration successful!");
 				handleLogOut();
-				form.reset();
+				event.target.reset(); 
 				navigate("/login");
 			})
 			.catch(error => {
@@ -157,7 +115,7 @@ const Registration = () => {
 				<p className="!px-6 md:!px-8 text-red-500 mt-2 text-center">{error}</p>
 				<p className="!px-6 md:!px-8 text-green-600 mt-2 text-center">{success}</p>
 
-				<form onSubmit={handleRegistration}>
+				<form onSubmit={handleSubmit(onSubmit)}>
 					<div className="!px-6 md:!px-8 !pt-2 card-body">
 						
 						<div className="grid md:grid-cols-2 md:gap-6">
@@ -165,15 +123,15 @@ const Registration = () => {
 								<label className="label pl-0" htmlFor="name">
 									<span className="label-text text-lg">Name</span>
 								</label>
-								<input type="text" id="name" name="name" placeholder="Enter your name" className="input input-bordered" />
-								<p className="text-red-500 mt-2">{nameError}</p> {/* Error Message */}
+								<input type="text" {...register("name", { required: true })} id="name" name="name" placeholder="Enter your name" className="input input-bordered" />
+								{errors?.name && <p className="text-red-500 mt-2">Name is required!</p>} {/* Error Message */}
 							</div>
 							<div className="form-control">
 								<label className="label pl-0" htmlFor="email">
 									<span className="label-text text-lg">Email</span>
 								</label>
-								<input type="email" id="email" name="email" placeholder="Enter your email address" className="input input-bordered" />
-								<p className="text-red-500 mt-2">{emailError}</p> {/* Error Message */}
+								<input type="email" {...register("email", { required: true })} id="email" name="email" placeholder="Enter your email address" className="input input-bordered" />
+								{errors?.email && <p className="text-red-500 mt-2">Email is required!</p>} {/* Error Message */}
 							</div>	
 						</div>
 						
@@ -182,25 +140,47 @@ const Registration = () => {
 								<label className="label pl-0" htmlFor="password">
 									<span className="label-text text-lg">Password</span>
 								</label>
-								<input type={showPassword ? "text" : "password"} id="password" name="password" placeholder="Enter your password" className="input input-bordered" autoComplete='true' />
-								<button onClick={handleShowPassword} className="btn btn-ghost absolute bottom-2 right-0 rounded-l-none">
+								<input type={showPassword ? "text" : "password"} 
+									{...register("password", {
+										required: true,
+										minLength: 6,
+										pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[a-z])/
+									})}
+									id="password" name="password" placeholder="Enter your password" className="input input-bordered" autoComplete='true' 
+								/>
+								<button onClick={handleShowPassword} className="btn btn-ghost absolute top-11 right-0 rounded-l-none">
 									{
 										showPassword ? <FaRegEyeSlash className='text-lg md:text-xl font-bold' /> : <FaRegEye className='text-lg md:text-xl font-bold' />
 									}
 								</button>
-								<p className="text-red-500 mt-2">{passwordError}</p>
+								{errors?.password?.type === 'required' && <p className="text-red-500 mt-2">Password is required!</p>}
+								{errors?.password?.type === 'minLength' && <p className="text-red-500 mt-2">Password must be at least 6 characters!</p>}
+								{errors?.password?.type === 'pattern' && <p className="text-red-500 mt-2">Password must have one uppercase and one special characters.</p>}
 							</div>
 							<div className="relative form-control">
 								<label className="label pl-0" htmlFor="confirmPassword">
 									<span className="label-text text-lg">Confirm Password</span>
 								</label>
-								<input type={showConfirmPassword ? "text" : "password"} id="confirmPassword" name="confirmPassword" placeholder="Enter your password again" className="input input-bordered" autoComplete='true' />
-								<button onClick={handleShowConfirmPassword} className="btn btn-ghost absolute bottom-2 right-0 rounded-l-none">
+								<input type={showConfirmPassword ? "text" : "password"} 
+									{...register("confirmPassword", {
+										required: "Please confirm password!",
+										validate: {
+											matchesPreviousPassword: (value) => {
+												const { password } = getValues();
+												return password === value || "Passwords should match!";
+											}
+										}
+									})}
+									id="confirmPassword" name="confirmPassword" placeholder="Please confirm your password" className="input input-bordered" autoComplete='true' 
+								/>
+								<button onClick={handleShowConfirmPassword} className="btn btn-ghost absolute top-11 right-0 rounded-l-none">
 									{
 										showConfirmPassword ? <FaRegEyeSlash className='text-lg md:text-xl font-bold' /> : <FaRegEye className='text-lg md:text-xl font-bold' />
 									}
 								</button>
-								<p className="text-red-500 mt-2">{confirmPasswordError}</p>
+								
+								{errors?.confirmPassword?.required === 'required' && <p className="text-red-500 mt-2">Passwords should match!</p>}
+								<p className="text-red-500 mt-2">{errors?.confirmPassword?.message}</p>
 							</div>
 						</div>
 
@@ -208,9 +188,10 @@ const Registration = () => {
 							<label className="label pl-0" htmlFor="photoURL">
 								<span className="label-text text-lg">Photo URL</span>
 							</label>
-							<input type="text" id="photoURL" name="photoURL" placeholder="Enter your photo url" className="mb-2 input input-bordered" />
+							<input type="text" {...register("photoURL", { required: true })} id="photoURL" name="photoURL" placeholder="Enter your photo url" className="input input-bordered" />
 							{/* <input type="file" id="image" name="image" accept="image/*" className="file-input file-input-bordered file-input-accent w-full" /> */}
 							{/* <p className="text-red-500 mt-2">{imageError}</p> */}
+							{errors?.photoURL && <p className="text-red-500 mt-2">Photo URL is required!</p>} {/* Error Message */}
 						</div>
 
 

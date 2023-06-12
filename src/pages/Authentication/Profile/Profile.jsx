@@ -50,13 +50,13 @@ const Profile = () => {
 
   return (
     <section className="max-w-lg mx-auto mt-4 lg:mt-20 p-4">
-      <div className="flex card card-compact w-full bg-base-100 shadow-2xl">
+      <div className="flex card card-compact w-full bg-base-100 shadow-xl border-2 border-teal-400">
 
         <div className="flex-1 p-6 md:p-8 pt-5 pb-1 md:pb-2">
           <h3 className='text-slate-700 text-3xl my-2 font-bold text-center'>Profile</h3>
         </div>
 
-        <div className="mx-auto my-2 w-24 aspect-square rounded-full ring-2 ring-offset-2 ring-blue-400">
+        <div className="mx-auto my-2 w-24 aspect-square rounded-full ring-2 ring-offset-2 ring-teal-400">
           <img className='rounded-full aspect-square object-cover object-top' src={currentUserPhotoURL ? currentUserPhotoURL : UserImage} alt={currentUserName} />
         </div>
         <div className="flex-1 mt-2">
@@ -87,7 +87,7 @@ const Profile = () => {
             </div>
             <div className="form-control mt-4">
               {/* <button className="btn text-lg" type="submit">Update</button> */}
-              <button type="submit" className="text-white bg-gradient-to-br from-blue-500 to-blue-600 transition-all hover:duration-300 hover:from-blue-600 hover:to-blue-700 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-800 font-medium rounded-lg text-lg px-5 py-2.5 text-center">Update</button>
+              <button type="submit" className="text-white bg-gradient-to-br from-teal-500 to-teal-600 ring-2 ring-offset-1 ring-teal-500 transition-all hover:duration-300 hover:from-teal-600 hover:to-teal-700 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-blue-200 dark:focus:ring-teal-800 font-medium rounded-lg text-lg px-5 py-2.5 text-center">Update</button>
             </div>
           </div>
         </form>

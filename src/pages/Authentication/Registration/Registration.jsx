@@ -17,9 +17,13 @@ const Registration = () => {
 
 	const [error, setError] = useState("");
 	const [success, setSuccess] = useState("");
+	const [showPassword, setShowPassword] = useState(false);
+	const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+	const [nameError, setNameError] = useState("");
 	const [emailError, setEmailError] = useState("");
 	const [passwordError, setPasswordError] = useState("");
-	const [showPassword, setShowPassword] = useState(false);
+	const [confirmPasswordError, setConfirmPasswordError] = useState("");
+	// const [imageError, setImageError] = useState("");
 	const [acceptTerms, setAcceptTerms] = useState(false);
 
 	const handleRegistration = (event) => {
@@ -27,27 +31,42 @@ const Registration = () => {
 		const form = event.target;
 		const email = form.email.value;
 		const password = form.password.value;
+		const confirmPassword = form.confirmPassword.value;
 		const name = form.name.value;
 		const photoURL = form.photoURL.value;
-		console.log(name, photoURL, email, password)
+		// const image = form.image.files[0];
+		// console.log({ name, photoURL, email, password, image });
 
 		setSuccess("");
 		setError("");
+		setNameError("");
 		setEmailError("");
 		setPasswordError("");
+		setConfirmPasswordError("");
+		// setImageError("");
+
+		if (name.length < 1) {
+			setNameError("Name field can not be empty!");
+			return;
+		}
 
 		if (email.length < 1) {
 			setEmailError("Email field can not be empty!");
 			return;
 		}
-		
+
 		if (password.length < 1) {
 			setPasswordError("Password field can not be empty!");
 			return;
 		}
-		
+
 		if (password.length < 6) {
 			setPasswordError("Password should be at least 6 characters long!");
+			return;
+		}
+
+		if (password !== confirmPassword) {
+			setConfirmPasswordError("Password should match with confirm password!");
 			return;
 		}
 
@@ -67,13 +86,14 @@ const Registration = () => {
 			})
 			.catch(error => {
 				setError(error.message);
+				toast.error(error.message)
 			})
 	};
 
 	// Logout 
 	const handleLogOut = () => {
 		logOut()
-			.then((result) => {
+			.then(() => {
 				console.log("Successfully logged out!");
 			})
 			.catch((error) => {
@@ -112,6 +132,12 @@ const Registration = () => {
 		event.preventDefault();
 		setShowPassword(!showPassword);
 	};
+	
+	// Show/Hide Confirm Password
+	const handleShowConfirmPassword = (event) => {
+		event.preventDefault();
+		setShowConfirmPassword(!showConfirmPassword);
+	};
 
 	// Accept Terms 
 	const handleAcceptTerms = (event) => {
@@ -119,8 +145,8 @@ const Registration = () => {
 	}
 
 	return (
-		<section className="max-w-lg mx-auto mt-4 lg:mt-20 p-4">
-			<div className="flex card card-compact w-full bg-base-100 shadow-2xl">
+		<section className="max-w-4xl mx-auto mt-4 lg:mt-20 p-4">
+			<div className="flex card card-compact w-full bg-base-100 shadow-xl border-2 border-teal-400">
 
 				<div className="flex-1 p-6 md:p-8 pt-5 pb-1 md:pb-2">
 					<h3 className='text-slate-700 text-2xl my-2 font-bold text-center'>Register your Account</h3>
@@ -133,41 +159,61 @@ const Registration = () => {
 
 				<form onSubmit={handleRegistration}>
 					<div className="!px-6 md:!px-8 !pt-2 card-body">
-						<div className="form-control">
-							<label className="label pl-0" htmlFor="name">
-								<span className="label-text text-lg">Name</span>
-							</label>
-							<input type="text" id="name" name="name" placeholder="Enter your name" className="input input-bordered" />
-							<p className="text-red-500 mt-2"></p> {/* Error Message */}
+						
+						<div className="grid md:grid-cols-2 md:gap-6">
+							<div className="form-control">
+								<label className="label pl-0" htmlFor="name">
+									<span className="label-text text-lg">Name</span>
+								</label>
+								<input type="text" id="name" name="name" placeholder="Enter your name" className="input input-bordered" />
+								<p className="text-red-500 mt-2">{nameError}</p> {/* Error Message */}
+							</div>
+							<div className="form-control">
+								<label className="label pl-0" htmlFor="email">
+									<span className="label-text text-lg">Email</span>
+								</label>
+								<input type="email" id="email" name="email" placeholder="Enter your email address" className="input input-bordered" />
+								<p className="text-red-500 mt-2">{emailError}</p> {/* Error Message */}
+							</div>	
 						</div>
 						
-						<div className="form-control">
-							<label className="label pl-0" htmlFor="email">
-								<span className="label-text text-lg">Email</span>
-							</label>
-							<input type="email" id="email" name="email" placeholder="Enter your email address" className="input input-bordered" />
-							<p className="text-red-500 mt-2">{emailError}</p> {/* Error Message */}
+						<div className="grid md:grid-cols-2 md:gap-6">
+							<div className="relative form-control">
+								<label className="label pl-0" htmlFor="password">
+									<span className="label-text text-lg">Password</span>
+								</label>
+								<input type={showPassword ? "text" : "password"} id="password" name="password" placeholder="Enter your password" className="input input-bordered" autoComplete='true' />
+								<button onClick={handleShowPassword} className="btn btn-ghost absolute bottom-2 right-0 rounded-l-none">
+									{
+										showPassword ? <FaRegEyeSlash className='text-lg md:text-xl font-bold' /> : <FaRegEye className='text-lg md:text-xl font-bold' />
+									}
+								</button>
+								<p className="text-red-500 mt-2">{passwordError}</p>
+							</div>
+							<div className="relative form-control">
+								<label className="label pl-0" htmlFor="confirmPassword">
+									<span className="label-text text-lg">Confirm Password</span>
+								</label>
+								<input type={showConfirmPassword ? "text" : "password"} id="confirmPassword" name="confirmPassword" placeholder="Enter your password again" className="input input-bordered" autoComplete='true' />
+								<button onClick={handleShowConfirmPassword} className="btn btn-ghost absolute bottom-2 right-0 rounded-l-none">
+									{
+										showConfirmPassword ? <FaRegEyeSlash className='text-lg md:text-xl font-bold' /> : <FaRegEye className='text-lg md:text-xl font-bold' />
+									}
+								</button>
+								<p className="text-red-500 mt-2">{confirmPasswordError}</p>
+							</div>
 						</div>
-						<div className="relative form-control">
-							<label className="label pl-0" htmlFor="password">
-								<span className="label-text text-lg">Password</span>
-							</label>
-							<input type={showPassword ? "text" : "password"} id="password" name="password" placeholder="Enter your password" className="input input-bordered" autoComplete='true' />
-							<button onClick={handleShowPassword} className="btn btn-ghost absolute bottom-0 right-0 rounded-l-none">
-								{
-									showPassword ? <FaRegEyeSlash className='text-lg md:text-xl font-bold' /> : <FaRegEye className='text-lg md:text-xl font-bold' />
-								}
-							</button>
-						</div>
-						<p className="text-red-500">{passwordError}</p>
 
 						<div className="form-control">
 							<label className="label pl-0" htmlFor="photoURL">
 								<span className="label-text text-lg">Photo URL</span>
 							</label>
-							<input type="text" id="photoURL" name="photoURL" placeholder="Enter your photo url" className="input input-bordered" />
-							<p className="text-red-500 mt-2"></p> {/* Error Message */}
+							<input type="text" id="photoURL" name="photoURL" placeholder="Enter your photo url" className="mb-2 input input-bordered" />
+							{/* <input type="file" id="image" name="image" accept="image/*" className="file-input file-input-bordered file-input-accent w-full" /> */}
+							{/* <p className="text-red-500 mt-2">{imageError}</p> */}
 						</div>
+
+
 						<div className="form-control mt-4">
 							<label className="label !justify-start text-md gap-2 cursor-pointer">
 								<input onChange={handleAcceptTerms} type="checkbox" className="checkbox checkbox-accent checkbox-sm rounded-md border-gray-400 shadow-sm" id="terms" />

@@ -37,7 +37,7 @@ const Header = () => {
 	};
 
 	return (
-		<div className="bg-gradient-to-tr from-teal-600 to-teal-700 py-2">
+		<div className="bg-teal-700 py-2">
 			<nav className={`navbar gap-4 ${user ? 'justify-between' : ''} max-w-7xl mx-auto`}>
 				<div className="navbar-start w-auto">
 					<div className="dropdown">
@@ -98,7 +98,7 @@ const Header = () => {
 						<div className="navbar-end w-auto mr-1 md:hidden">
 							<div className="dropdown dropdown-end mt-1">
 								<label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip tooltip-left" data-tip={currentUserName}>
-									<div className="w-10 rounded-full ring-2 ring-offset-2 ring-blue-400">
+									<div className="w-10 rounded-full ring-2 ring-offset-2 ring-teal-400">
 										<img className='object-top' src={currentUserPhotoURL} alt={currentUserName} />
 									</div>
 								</label>
@@ -177,7 +177,7 @@ const Header = () => {
 						user && (
 							<div className="dropdown dropdown-end mt-1 ml-6">
 								<label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip tooltip-left" data-tip={currentUserName}>
-									<div className="w-10 rounded-full ring-2 ring-offset-2 ring-blue-400">
+									<div className="w-10 rounded-full ring-2 ring-offset-2 ring-teal-400">
 										<img className='object-top' src={currentUserPhotoURL} alt={currentUserName} referrerPolicy="no-referrer" />
 									</div>
 								</label>
@@ -195,13 +195,13 @@ const Header = () => {
 									<li>
 										{/* <Link to="/profile" className="mb-2 bg-blue-500 hover:bg-blue-600 transition hover:delay-200 text-white font-bold py-2 justify-center">Profile</Link> */}
 										<Link className='flex p-0 mb-2' to="/profile">
-											<button type="button" className="flex gap-3 mx-auto md:mx-0 w-full items-center justify-center text-white bg-gradient-to-br from-teal-400 to-teal-600 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-semibold rounded-lg text-sm px-8 py-2 text-center">Profile</button>
+											<button type="button" className="flex gap-3 mx-auto md:mx-0 w-full items-center justify-center text-white bg-gradient-to-br from-teal-400 to-teal-600 ring-2 ring-teal-500 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-semibold rounded-lg text-sm px-8 py-2 text-center">Profile</button>
 										</Link>
 									</li>
 									<li>
 										{/* <Link onClick={handleLogOut} className="bg-red-500 hover:bg-red-600 transition hover:delay-200 text-white font-bold py-2 justify-center">Logout</Link> */}
 										<Link className='flex p-0' onClick={handleLogOut}>
-											<button type="button" className="flex gap-3 mx-auto md:mx-0 w-full items-center justify-center text-white bg-gradient-to-br from-red-600 to-orange-500 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-semibold rounded-lg text-sm px-8 py-2 text-center">Logout</button>
+											<button type="button" className="flex gap-3 mx-auto md:mx-0 w-full items-center justify-center text-white bg-gradient-to-br from-red-600 to-orange-500 ring-2 ring-orange-500 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-semibold rounded-lg text-sm px-8 py-2 text-center">Logout</button>
 										</Link>
 									</li>
 								</ul>

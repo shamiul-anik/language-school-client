@@ -75,7 +75,7 @@ const Login = () => {
 
 	return (
 		<section className="max-w-lg mx-auto mt-4 lg:mt-20 p-4">
-			<div className="flex card card-compact w-full bg-base-100 shadow-2xl">
+			<div className="flex card card-compact w-full bg-base-100 shadow-xl border-2 border-teal-400">
 				
 				<div className="flex-1 p-6 md:p-8 pt-5 pb-1 md:pb-2">
 					<h3 className='text-slate-700 text-2xl my-2 font-bold text-center'>Login to your Account</h3>

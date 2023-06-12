@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { useTitle } from '../../../hooks/useTitle';
 import { useForm } from 'react-hook-form';
 import Loader from '../../shared/Loader/Loader';
+import { saveUser } from '../../../api/auth';
 
 const Login = () => {
 
@@ -51,8 +52,15 @@ const Login = () => {
 	const handleGoogleLogin = () => {
 		signInWithGoogle()
 			.then(result => {
-				const loggedUser = result.user;
-				console.log(loggedUser);
+				const currentUser = result.user;
+				// console.log(currentUser);
+				const userInfo = {
+					email: currentUser.email,
+					displayName: currentUser.displayName,
+					photoURL: currentUser.photoURL
+				}
+				saveUser(userInfo);
+
 				toast.success("Successfully logged in!");
 				navigate(from, { replace: true })
 			})

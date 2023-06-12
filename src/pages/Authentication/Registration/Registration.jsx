@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 import { updateProfile } from 'firebase/auth';
 import { useTitle } from '../../../hooks/useTitle';
+import { saveUser } from '../../../api/auth';
 import Terms from './Terms';
 
 const Registration = () => {
@@ -26,16 +27,24 @@ const Registration = () => {
 		// console.log(userInformation);
 		delete userInformation.confirmPassword;
 		delete userInformation.passwordConfirmation;
-		console.log("After Deleting Password Confirmation: ", userInformation);
+		// console.log("After Deleting Password Confirmation: ", userInformation);
 
 		createUser(userInformation.email, userInformation.password)
 			.then(result => {
 				const currentUser = result.user;
-				console.log(currentUser);
+				// console.log("currentUser", currentUser);
 				if (userInformation.name || userInformation.photoURL) {
-					console.log("inside update condition");
+					// console.log("inside update condition");
 					updateUserData(currentUser, userInformation.name, userInformation.photoURL);
 				}
+				
+				const userInfo = {
+					email: currentUser.email,
+					displayName: userInformation.name,
+					photoURL: userInformation.photoURL
+				}
+				saveUser(userInfo);
+
 				setSuccess("Registration successful!");
 				toast.success("Registration successful!");
 				handleLogOut();
@@ -75,8 +84,14 @@ const Registration = () => {
 	const handleGoogleRegistration = () => {
 		signInWithGoogle()
 			.then(result => {
-				const loggedUser = result.user;
-				console.log(loggedUser);
+				const currentUser = result.user;
+				// console.log(currentUser);
+				const userInfo = {
+					email: currentUser.email,
+					displayName: currentUser.displayName,
+					photoURL: currentUser.photoURL
+				}
+				saveUser(userInfo);
 				toast.success("Successfully registered!");
 				navigate("/");
 			})

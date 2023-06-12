@@ -4,11 +4,13 @@ import { AuthContext } from '../../../providers/AuthProvider';
 import { toast } from 'react-toastify';
 import Logo from '../../../assets/images/logo.png';
 import UserImage from '../../../assets/images/user.png'
+import useUserRole from '../../../hooks/useUserRole';
 import './Header.css';
 
 const Header = () => {
 
 	const { user, logOut, loading, setLoading } = useContext(AuthContext);
+	const [userRole] = useUserRole();
 
 	const navigate = useNavigate();
 
@@ -111,6 +113,9 @@ const Header = () => {
 										{currentUserName}
 									</li>
 									<p className='text-slate-600 text-sm mt-1 mb-2 font-normal text-center'>{currentUserEmail}</p>
+									{
+										userRole && <p className="uppercase px-5 py-0.5 text-sm bg-teal-300 w-fit mx-auto rounded-xl">{userRole}</p>
+									}
 									<div className="divider mt-1 mb-2"></div>
 									<li>
 										<Link className='flex p-0 mb-2' to="/profile">
@@ -189,6 +194,9 @@ const Header = () => {
 										{currentUserName}
 									</li>
 									<p className='text-slate-600 text-sm mt-1 mb-2 font-normal text-center'>{currentUserEmail}</p>
+									{
+										userRole && <p className="uppercase px-5 py-0.5 text-sm bg-teal-300 w-fit mx-auto rounded-xl">{userRole}</p>
+									}
 									<div className="divider mt-1 mb-2"></div>
 									<li>
 										{/* <Link to="/profile" className="mb-2 bg-blue-500 hover:bg-blue-600 transition hover:delay-200 text-white font-bold py-2 justify-center">Profile</Link> */}

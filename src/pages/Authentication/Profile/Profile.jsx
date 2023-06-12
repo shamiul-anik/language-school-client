@@ -1,10 +1,11 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { updateProfile } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { useTitle } from '../../../hooks/useTitle';
 import UserImage from '../../../assets/images/user.png'
 import { toast } from 'react-toastify';
+import useUserRole from '../../../hooks/useUserRole';
 
 const Profile = () => {
 
@@ -13,6 +14,7 @@ const Profile = () => {
   const navigate = useNavigate();
 
   const { user, setLoading } = useContext(AuthContext);
+  const [userRole] = useUserRole();
 
   const currentUserName = user?.displayName;
   const currentUserPhotoURL = user?.photoURL;
@@ -62,6 +64,9 @@ const Profile = () => {
         <div className="flex-1 mt-2">
           <h4 className='text-slate-700 text-2xl my-2 font-bold text-center'>{currentUserName ? currentUserName : "Welcome, User!"}</h4>
           <p className='text-slate-600 text-md mt-2 mb-3 font-medium text-center'>{currentUserEmail}</p>
+          {
+            userRole && <p className="uppercase px-5 py-1 bg-teal-300 w-fit mx-auto rounded-xl">{userRole}</p>
+          }
         </div>
 
         <div className='border-t border-slate-300 my-4 mx-6 md:mx-8'></div>

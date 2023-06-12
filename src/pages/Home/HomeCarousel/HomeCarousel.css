@@ -1,0 +1,27 @@
+.carousel ul {
+  text-align: center;
+}
+
+.carousel .thumb.selected,
+.carousel .thumb:hover {
+  border: 3px solid #18cbbc;
+}
+
+.carousel .slide .legend {
+  bottom: 5%;
+  left: 0;
+  margin-left: 0;
+  width: 100%;
+  background: rgb(8 255 236 / 0.1);
+  backdrop-filter: blur(8px);
+  font-size: 36px;
+  opacity: 1;
+}
+
+.carousel.carousel-slider .control-arrow {
+  padding: 5px 20px;
+}
+
+.carousel.carousel-slider .control-arrow:hover {
+  background: rgb(8 255 236 / 0.1);
+}

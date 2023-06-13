@@ -49,21 +49,21 @@ const Contact = () => {
                 <label className="label pl-0" htmlFor="name">
                   <span className="label-text text-md md:text-[16px]">Name</span>
                 </label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" className="input input-bordered input-sm py-5 text-[14px]" />
+                <input type="text" id="name" name="name" placeholder="Enter your name" className="input input-bordered focus:outline-teal-500 focus:border-teal-200 focus:ring-teal-400 input-sm py-5 text-[14px]" />
               </div>
 
               <div className="form-control">
                 <label className="label pl-0" htmlFor="email">
                   <span className="label-text text-md md:text-[16px]">Email</span>
                 </label>
-                <input type="text" id="email" name="email" placeholder="Enter your email address" className="input input-bordered input-sm py-5 text-[14px]" />
+                <input type="text" id="email" name="email" placeholder="Enter your email address" className="input input-bordered focus:outline-teal-500 focus:border-teal-200 focus:ring-teal-400 input-sm py-5 text-[14px]" />
               </div>
 
               <div className="form-control">
                 <label className="label pl-0" htmlFor="message">
                   <span className="label-text text-md md:text-[16px]">Message</span>
                 </label>
-                <textarea id="message" name="message" rows="6" className="input input-bordered text-[14px] h-auto" placeholder="Enter your message"></textarea>
+                <textarea id="message" name="message" rows="6" className="input input-bordered focus:outline-teal-500 focus:border-teal-200 focus:ring-teal-400 text-[14px] h-auto" placeholder="Enter your message"></textarea>
               </div>
 
               <div className="form-control mt-3">

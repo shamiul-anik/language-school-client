@@ -8,7 +8,7 @@ const Newsletter = () => {
       <SectionTitle heading="Newsletter" subHeading="Stay in the loop by subscribing to our Newsletter!"></SectionTitle>
 
       <div className="mx-4 p-6 lg:p-12 rounded-lg border-2 shadow-lg border-teal-400 mt-6">
-        <p className='content-description text-center'>Stay Connected with Language School!</p>
+        {/* <p className='content-description text-center'>Stay Connected with Language School!</p> */}
         <p className='content-description text-center mt-2'>Sign up for our newsletter and be the first to know about the latest updates, exclusive offers, and valuable resources from Language School. Our newsletter is packed with insightful content, language learning tips, and exciting updates to support your language learning journey.</p>
         <p className='content-description text-center mt-2'>Join our vibrant community of language learners, educators, and enthusiasts who are passionate about unlocking the power of languages.</p>
         <p className='content-description text-center mt-2'>Enter your email address below and click 'Subscribe' to start receiving our informative and inspiring newsletter. <br /> Don't miss out on the opportunity to immerse yourself in a world of language learning resources and stay up to date with the latest developments in the language education field.</p>

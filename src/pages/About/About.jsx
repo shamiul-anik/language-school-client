@@ -25,7 +25,7 @@ const About = () => {
 				<div>
 					<div className='border-2 border-slate-200 rounded-xl p-4 md:p-8 shadow-lg'>
 						<header>
-							<h3 className='text-lg md:text-xl'>Welcome to <span className='font-bold text-blue-600'>Language School</span>!</h3>
+							<h3 className='text-lg md:text-xl'>Welcome to <span className='font-bold text-teal-600'>Language School</span>!</h3>
 						</header>
 						<div className='text-sm md:text-base'>
 							<p className='mt-4'>At Language School, we believe that language learning should be an exciting and immersive experience. We are dedicated to providing high-quality language education that fosters communication skills, cultural understanding, and a lifelong passion for languages.</p>
@@ -135,12 +135,12 @@ const About = () => {
 					</div>
 				</div>
 				<div>
-					If you have any other questions or need further information, please feel free to
+					If you have any other questions or need further information, please feel free to&nbsp;
 					<Link
 						to="/contact"
 						rel="nofollow"
-						className="text-blue-600 hover:underline dark:text-blue-500"
-					> contact
+						className="text-teal-600 hover:underline dark:text-teal-500 font-semibold"
+					>contact
 					</Link> our friendly staff. We are here to assist you on your language learning journey!
 				</div>
 			</section>

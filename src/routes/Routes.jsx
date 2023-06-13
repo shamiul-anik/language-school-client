@@ -9,6 +9,7 @@ const Home = lazy(() => import("../pages/Home/Home"));
 
 // const PrivateRoute = lazy(() => import("./PrivateRoute"));
 const Instructors = lazy(() => import("../pages/Instructors/Instructors"));
+const Classes = lazy(() => import("../pages/Classes/Classes"));
 const Contact = lazy(() => import("../pages/Contact/Contact"));
 const About = lazy(() => import("../pages/About/About"));
 const Login = lazy(() => import("../pages/Authentication/Login/Login"));
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
 			{
 				path: '/instructors',
 				element: <Suspense fallback={<Loader></Loader>}><Instructors></Instructors></Suspense>,
+			},
+			{
+				path: '/classes',
+				element: <Suspense fallback={<Loader></Loader>}><Classes></Classes></Suspense>,
 			},
 			{
 				path: 'login',

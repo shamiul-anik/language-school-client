@@ -21,7 +21,7 @@ const PopularClasses = () => {
           <div className='border-t border-slate-300 mb-1'></div>
           <div className="flex-1 p-4 pt-4 pb-0">
             <h3 className='text-center text-xl text-slate-700 font-bold'>Course Title</h3>
-            <h4 className='text-center text-lg text-slate-600 font-bold mt-2'>Instructor's Name</h4>
+            <h4 className='text-center text-lg text-slate-600 font-semibold mt-2'>Instructor's Name</h4>
             {/* <p className='font-semibold text-sm text-center mt-3 mb-2 text-slate-600'>Quantity: 25</p> */}
           </div>
           <div className='border-t border-slate-300 my-4'></div>
@@ -45,7 +45,7 @@ const PopularClasses = () => {
           <div className='border-t border-slate-300 mb-1'></div>
           <div className="flex-1 p-4 pt-4 pb-0">
             <h3 className='text-center text-xl text-slate-700 font-bold'>Course Title</h3>
-            <h4 className='text-center text-lg text-slate-600 font-bold mt-2'>Instructor's Name</h4>
+            <h4 className='text-center text-lg text-slate-600 font-semibold mt-2'>Instructor's Name</h4>
             {/* <p className='font-semibold text-sm text-center mt-3 mb-2 text-slate-600'>Quantity: 25</p> */}
           </div>
           <div className='border-t border-slate-300 my-4'></div>
@@ -69,7 +69,7 @@ const PopularClasses = () => {
           <div className='border-t border-slate-300 mb-1'></div>
           <div className="flex-1 p-4 pt-4 pb-0">
             <h3 className='text-center text-xl text-slate-700 font-bold'>Course Title</h3>
-            <h4 className='text-center text-lg text-slate-600 font-bold mt-2'>Instructor's Name</h4>
+            <h4 className='text-center text-lg text-slate-600 font-semibold mt-2'>Instructor's Name</h4>
             {/* <p className='font-semibold text-sm text-center mt-3 mb-2 text-slate-600'>Quantity: 25</p> */}
           </div>
           <div className='border-t border-slate-300 my-4'></div>
@@ -93,7 +93,7 @@ const PopularClasses = () => {
           <div className='border-t border-slate-300 mb-1'></div>
           <div className="flex-1 p-4 pt-4 pb-0">
             <h3 className='text-center text-xl text-slate-700 font-bold'>Course Title</h3>
-            <h4 className='text-center text-lg text-slate-600 font-bold mt-2'>Instructor's Name</h4>
+            <h4 className='text-center text-lg text-slate-600 font-semibold mt-2'>Instructor's Name</h4>
             {/* <p className='font-semibold text-sm text-center mt-3 mb-2 text-slate-600'>Quantity: 25</p> */}
           </div>
           <div className='border-t border-slate-300 my-4'></div>
@@ -117,7 +117,7 @@ const PopularClasses = () => {
           <div className='border-t border-slate-300 mb-1'></div>
           <div className="flex-1 p-4 pt-4 pb-0">
             <h3 className='text-center text-xl text-slate-700 font-bold'>Course Title</h3>
-            <h4 className='text-center text-lg text-slate-600 font-bold mt-2'>Instructor's Name</h4>
+            <h4 className='text-center text-lg text-slate-600 font-semibold mt-2'>Instructor's Name</h4>
             {/* <p className='font-semibold text-sm text-center mt-3 mb-2 text-slate-600'>Quantity: 25</p> */}
           </div>
           <div className='border-t border-slate-300 my-4'></div>
@@ -141,7 +141,7 @@ const PopularClasses = () => {
           <div className='border-t border-slate-300 mb-1'></div>
           <div className="flex-1 p-4 pt-4 pb-0">
             <h3 className='text-center text-xl text-slate-700 font-bold'>Course Title</h3>
-            <h4 className='text-center text-lg text-slate-600 font-bold mt-2'>Instructor's Name</h4>
+            <h4 className='text-center text-lg text-slate-600 font-semibold mt-2'>Instructor's Name</h4>
             {/* <p className='font-semibold text-sm text-center mt-3 mb-2 text-slate-600'>Quantity: 25</p> */}
           </div>
           <div className='border-t border-slate-300 my-4'></div>

@@ -8,6 +8,7 @@ const ErrorPage = lazy(() => import("../pages/shared/ErrorPage/ErrorPage"));
 const Home = lazy(() => import("../pages/Home/Home"));
 
 // const PrivateRoute = lazy(() => import("./PrivateRoute"));
+const Instructors = lazy(() => import("../pages/Instructors/Instructors"));
 const Contact = lazy(() => import("../pages/Contact/Contact"));
 const About = lazy(() => import("../pages/About/About"));
 const Login = lazy(() => import("../pages/Authentication/Login/Login"));
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
 			{
 				path: '/',
 				element: <Suspense fallback={<Loader></Loader>}><Home></Home></Suspense>,
+			},
+			{
+				path: '/instructors',
+				element: <Suspense fallback={<Loader></Loader>}><Instructors></Instructors></Suspense>,
 			},
 			{
 				path: 'login',

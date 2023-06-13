@@ -149,9 +149,7 @@ const PopularInstructors = () => {
             </div>
           </div>
         </div>
-
         
-
       </div>
     </section>
   );

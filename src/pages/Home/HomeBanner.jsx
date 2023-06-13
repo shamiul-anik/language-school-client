@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import BannerImage from '../../assets/images/banner.png';
+import BannerImage from '../../assets/images/lc-banner.png';
 import { FaArrowRight } from 'react-icons/fa';
 
 const HomeBanner = () => {

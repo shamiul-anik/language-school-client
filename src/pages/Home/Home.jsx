@@ -6,6 +6,8 @@ import HomeCarousel from './HomeCarousel/HomeCarousel';
 import { useEffect } from "react";
 import Statistics from "./Statistics";
 import Newsletter from "./Newsletter";
+import Testimonial from "./Testimonial";
+import UpcomingCourse from "./UpcomingCourse";
 
 
 const Home = () => {
@@ -26,6 +28,12 @@ const Home = () => {
 
       {/* Statistics */}
       <Statistics></Statistics>
+
+      {/* Testimonial */}
+      <Testimonial></Testimonial>
+
+      {/* Discount */}
+      <UpcomingCourse></UpcomingCourse>
 
       {/* Subscribe to Our Newsletter */}
       <Newsletter></Newsletter>

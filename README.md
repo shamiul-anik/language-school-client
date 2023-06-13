@@ -147,20 +147,22 @@ https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-sh
       <td>React Responsive Carousel</td>
       <td>https://react-responsive-carousel.js.org/</td>
     </tr>
-    <!-- <tr>
-      <td align="center">12</td>
-      <td>NAME</td>
-      <td>LINK</td>
-    </tr>
     <tr>
       <td align="center">12</td>
-      <td>NAME</td>
-      <td>LINK</td>
+      <td>Swiper</td>
+      <td>https://swiperjs.com/react</td>
     </tr>
-    <tr>
-      <td align="center">12</td>
-      <td>NAME</td>
-      <td>LINK</td>
-    </tr> -->
+    <!-- 
+      <tr>
+        <td align="center">12</td>
+        <td>NAME</td>
+        <td>LINK</td>
+      </tr>
+      <tr>
+        <td align="center">12</td>
+        <td>NAME</td>
+        <td>LINK</td>
+      </tr> 
+    -->
   </tbody>
 </table>

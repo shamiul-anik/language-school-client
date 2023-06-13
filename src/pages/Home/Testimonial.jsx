@@ -1,3 +1,4 @@
+import { Rating } from "@smastrom/react-rating";
 import SectionTitle from "../../components/SectionTitle";
 
 const Testimonial = () => {
@@ -14,10 +15,11 @@ const Testimonial = () => {
               <p className="my-4">"Language School has been a game-changer for me. I enrolled in their Spanish course with zero knowledge of the language, and now I can confidently hold conversations with native speakers. The instructors are incredibly patient and supportive, creating a comfortable and encouraging learning environment. I highly recommend Language School to anyone looking to learn a new language.</p>
             </blockquote>
             <figcaption className="flex items-center justify-center space-x-3">
-              <img className="rounded-full w-12 h-12" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="profile picture" />
+              <img className="rounded-full w-20 h-20" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="profile picture" />
                 <div className="space-y-0.5 font-medium dark:text-white text-left">
                   <div>Jese Leos</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">Spanish Course Student</div>
+                  <div className="mb-2 text-sm text-gray-500 dark:text-gray-400">Spanish Course Student</div>
+                  <Rating style={{ maxWidth: 90 }} value="5" readOnly />
                 </div>
             </figcaption>
           </figure>
@@ -27,10 +29,11 @@ const Testimonial = () => {
               <p className="my-4">"I can't speak highly enough about Language School. The German course I took exceeded my expectations. The curriculum was well-structured, and the instructors made the learning process enjoyable and interactive. The small class size allowed for personalized attention, and the cultural activities added an extra dimension to the learning experience. Language School truly goes above and beyond to ensure student success."</p>
             </blockquote>
             <figcaption className="flex items-center justify-center space-x-3">
-              <img className="rounded-full w-12 h-12" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png" alt="profile picture" />
+              <img className="rounded-full w-20 h-20" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png" alt="profile picture" />
                 <div className="space-y-0.5 font-medium dark:text-white text-left">
                   <div>Joseph McFall</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400">German Course Student</div>
+                  <div className="mb-2 text-sm text-gray-500 dark:text-gray-400">German Course Student</div>
+                  <Rating style={{ maxWidth: 90 }} value="5" readOnly />
                 </div>
             </figcaption>
           </figure>

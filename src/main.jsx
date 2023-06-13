@@ -5,9 +5,8 @@ import { router } from './routes/Routes.jsx';
 import { ToastContainer, Zoom } from 'react-toastify';
 import AuthProvider from './providers/AuthProvider.jsx';
 import 'react-toastify/dist/ReactToastify.css';
-// import '@smastrom/react-rating/style.css';
+import '@smastrom/react-rating/style.css';
 import './index.css';
-// import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();

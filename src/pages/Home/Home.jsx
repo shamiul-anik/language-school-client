@@ -40,10 +40,10 @@ const Home = () => {
       {/* Testimonial */}
       <Testimonial></Testimonial>
 
-      {/* Discount */}
+      {/* Upcoming Course */}
       <UpcomingCourse></UpcomingCourse>
 
-      {/* Subscribe to Our Newsletter */}
+      {/* Newsletter */}
       <Newsletter></Newsletter>
     </div>
   );

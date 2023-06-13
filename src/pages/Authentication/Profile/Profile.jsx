@@ -5,7 +5,6 @@ import { AuthContext } from '../../../providers/AuthProvider';
 import { useTitle } from '../../../hooks/useTitle';
 import UserImage from '../../../assets/images/user.png'
 import { toast } from 'react-toastify';
-import useUserRole from '../../../hooks/useUserRole';
 
 const Profile = () => {
 
@@ -13,8 +12,7 @@ const Profile = () => {
 
   const navigate = useNavigate();
 
-  const { user, setLoading } = useContext(AuthContext);
-  const [userRole] = useUserRole();
+  const { user, userRole, setLoading } = useContext(AuthContext);
 
   const currentUserName = user?.displayName;
   const currentUserPhotoURL = user?.photoURL;

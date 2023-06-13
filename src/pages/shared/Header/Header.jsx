@@ -4,13 +4,11 @@ import { AuthContext } from '../../../providers/AuthProvider';
 import { toast } from 'react-toastify';
 import Logo from '../../../assets/images/logo.png';
 import UserImage from '../../../assets/images/user.png'
-import useUserRole from '../../../hooks/useUserRole';
 import './Header.css';
 
 const Header = () => {
 
-	const { user, logOut, loading, setLoading } = useContext(AuthContext);
-	const [userRole] = useUserRole();
+	const { user, userRole, logOut, loading, setLoading } = useContext(AuthContext);
 
 	const navigate = useNavigate();
 

@@ -2,8 +2,9 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Loader from "../pages/shared/Loader/Loader";
-import DashboardLayout from "../layouts/DashboardLayout";
-import Dashboard from "../pages/Dashboard/Dashboard";
+// import DashboardLayout from "../layouts/DashboardLayout";
+// import Dashboard from "../pages/Dashboard/Dashboard";
+// import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
 
 const MainLayout = lazy(() => import("../layouts/MainLayout"));
 const ErrorPage = lazy(() => import("../pages/shared/ErrorPage/ErrorPage"));
@@ -18,6 +19,10 @@ const Login = lazy(() => import("../pages/Authentication/Login/Login"));
 const Registration = lazy(() => import("../pages/Authentication/Registration/Registration"));
 const PasswordReset = lazy(() => import("../pages/Authentication/PasswordReset/PasswordReset"));
 const Profile = lazy(() => import("../pages/Authentication/Profile/Profile"));
+
+const DashboardLayout = lazy(() => import("../layouts/DashboardLayout"));
+const Dashboard = lazy(() => import("../pages/Dashboard/Dashboard"));
+const ManageUsers = lazy(() => import("../pages/Dashboard/Admin/ManageUsers/ManageUsers"));
 
 export const router = createBrowserRouter([
 	{
@@ -76,10 +81,10 @@ export const router = createBrowserRouter([
 				path: '/dashboard/my-selected-classes',
 				element: <Suspense fallback={<Loader></Loader>}><p>My Selected Classes</p></Suspense>,
 			},
-			// {
-			// 	path: '/instructors',
-			// 	element: <Suspense fallback={<Loader></Loader>}><Instructors></Instructors></Suspense>,
-			// },
+			{
+				path: '/dashboard/manage-users',
+				element: <Suspense fallback={<Loader></Loader>}><ManageUsers></ManageUsers></Suspense>,
+			},
 			// {
 			// 	path: '/classes',
 			// 	element: <Suspense fallback={<Loader></Loader>}><Classes></Classes></Suspense>,

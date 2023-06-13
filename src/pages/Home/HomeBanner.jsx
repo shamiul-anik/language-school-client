@@ -5,7 +5,7 @@ import { FaArrowRight } from 'react-icons/fa';
 const HomeBanner = () => {
   
   return (
-    <div className="relative bg-gradient-to-br from-teal-600 to-teal-700">
+    <div className="bg-gradient-to-br from-teal-600 to-teal-700">
       <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 max-w-7xl mx-auto px-4 py-8 lg:py-16">
         <div className="max-w-xl p-4">
           <header>

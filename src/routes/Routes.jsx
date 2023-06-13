@@ -8,6 +8,7 @@ const ErrorPage = lazy(() => import("../pages/shared/ErrorPage/ErrorPage"));
 const Home = lazy(() => import("../pages/Home/Home"));
 
 // const PrivateRoute = lazy(() => import("./PrivateRoute"));
+const Contact = lazy(() => import("../pages/Contact/Contact"));
 const Login = lazy(() => import("../pages/Authentication/Login/Login"));
 const Registration = lazy(() => import("../pages/Authentication/Registration/Registration"));
 const PasswordReset = lazy(() => import("../pages/Authentication/PasswordReset/PasswordReset"));
@@ -39,10 +40,10 @@ export const router = createBrowserRouter([
 				path: 'profile',
 				element: <Suspense fallback={<Loader></Loader>}><Profile></Profile></Suspense>
 			},
-			// {
-			// 	path: 'contact',
-			// 	element: <Suspense fallback={<Loader></Loader>}><Contact></Contact></Suspense>
-			// },
+			{
+				path: 'contact',
+				element: <Suspense fallback={<Loader></Loader>}><Contact></Contact></Suspense>
+			},
 			// {
 			// 	path: 'about',
 			// 	element: <Suspense fallback={<Loader></Loader>}><About></About></Suspense>

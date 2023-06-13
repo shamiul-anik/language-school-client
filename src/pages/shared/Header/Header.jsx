@@ -62,10 +62,11 @@ const Header = () => {
 									</li>
 								</>
 							)}
+							<li className="hover:cursor-pointer">
+								<NavLink to="/contact">Contact</NavLink>
+							</li>
 							{/* 
-								<li className="hover:cursor-pointer">
-									<NavLink to="/contact">Contact</NavLink>
-								</li>
+								
 								<li className="hover:cursor-pointer">
 									<NavLink to="/about">About</NavLink>
 								</li> 
@@ -149,10 +150,11 @@ const Header = () => {
 								</li>
 							</>
 						)}
+						<li className="nav-item hover:cursor-pointer">
+							<NavLink to="/contact">Contact</NavLink>
+						</li>
 						{/* 
-							<li className="nav-item hover:cursor-pointer">
-								<NavLink to="/contact">Contact</NavLink>
-							</li>
+							
 							<li className="nav-item hover:cursor-pointer">
 								<NavLink to="/about">About</NavLink>
 							</li> 

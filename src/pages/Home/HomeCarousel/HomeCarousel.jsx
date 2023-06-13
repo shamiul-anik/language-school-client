@@ -5,10 +5,14 @@ import CarouselImage1 from '../../../assets/images/carousel/tinified/image1.jpg'
 import CarouselImage2 from '../../../assets/images/carousel/tinified/image2.jpg';
 import CarouselImage3 from '../../../assets/images/carousel/tinified/image3.jpg';
 import CarouselImage4 from '../../../assets/images/carousel/tinified/image4.jpg';
+import SectionTitle from '../../../components/SectionTitle';
 
 const HomeCarousel = () => {
   return (
-    <div>
+    // <section>
+    <section className="mt-12 lg:mt-24 p-4 md:px-0">
+      <SectionTitle heading="Unlock the Power of Languages" subHeading="Expand Your Horizons and Embrace Multilingual Proficiency"></SectionTitle>
+
       <Carousel animationHandler="fade" infiniteLoop="true">
         <div>
           <img src={CarouselImage1} alt="Carousel Image" />
@@ -37,7 +41,7 @@ const HomeCarousel = () => {
           </p>
         </div>
       </Carousel>
-    </div>
+    </section>
   );
 };
 

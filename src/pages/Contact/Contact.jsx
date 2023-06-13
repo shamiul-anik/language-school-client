@@ -1,9 +1,8 @@
 import { useTitle } from "../../hooks/useTitle";
-import ContactBanner from "./ContactBanner";
+import CommonBanner from "../../components/CommonBanner";
 import Lottie from "lottie-react";
 import ContactUsLottie from '../../assets/lottie/contact-us.json';
 import { BsSend } from "react-icons/bs";
-import CommonBanner from "../../components/CommonBanner";
 
 const Contact = () => {
 

@@ -13,7 +13,7 @@
   margin-left: 0;
   width: 100%;
   background: rgb(8 255 236 / 0.1);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(5px);
   font-size: 36px;
   opacity: 1;
 }

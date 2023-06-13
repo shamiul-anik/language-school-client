@@ -7,6 +7,7 @@ import AuthProvider from './providers/AuthProvider.jsx';
 import 'react-toastify/dist/ReactToastify.css';
 import '@smastrom/react-rating/style.css';
 import './index.css';
+import "aos/dist/aos.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();

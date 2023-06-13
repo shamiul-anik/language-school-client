@@ -1,5 +1,4 @@
 import Aos from "aos";
-import "aos/dist/aos.css";
 import { useTitle } from '../../hooks/useTitle';
 import HomeBanner from './HomeBanner';
 import HomeCarousel from './HomeCarousel/HomeCarousel';

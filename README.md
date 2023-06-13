@@ -44,7 +44,7 @@ https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-sh
 18. React lazy load added for better user experience and optimization.
 19. Contact and About page added as extra features.
 20. AOS animation added on different sections of Home page.
-21. React Awesome Reveal animation added on Banner of Home, Instructors, Classes, About and Contact pages.
+21. React Awesome Reveal animation added on Banner of Home, Instructors, Classes, About, Contact and Dashboard pages.
 <!-- 21. Search functionality added on All Toys and My Toys page. Indexing is used in Toy Name and Seller Name for better search experience. -->
 <!-- 22. Home page Sub-category section added with dynamic data loading on click from database. -->
 

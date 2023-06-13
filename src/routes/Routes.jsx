@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Loader from "../pages/shared/Loader/Loader";
 import DashboardLayout from "../layouts/DashboardLayout";
+import Dashboard from "../pages/Dashboard/Dashboard";
 
 const MainLayout = lazy(() => import("../layouts/MainLayout"));
 const ErrorPage = lazy(() => import("../pages/shared/ErrorPage/ErrorPage"));
@@ -69,7 +70,7 @@ export const router = createBrowserRouter([
 		children: [
 			{
 				path: '/dashboard',
-				element: <Suspense fallback={<Loader></Loader>}><p>Dashboard</p></Suspense>,
+				element: <Suspense fallback={<Loader></Loader>}><Dashboard></Dashboard></Suspense>,
 			},
 			{
 				path: '/dashboard/my-selected-classes',

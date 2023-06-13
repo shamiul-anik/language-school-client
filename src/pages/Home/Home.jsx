@@ -5,6 +5,7 @@ import HomeBanner from './HomeBanner';
 import HomeCarousel from './HomeCarousel/HomeCarousel';
 import { useEffect } from "react";
 import Statistics from "./Statistics";
+import Newsletter from "./Newsletter";
 
 
 const Home = () => {
@@ -25,6 +26,9 @@ const Home = () => {
 
       {/* Statistics */}
       <Statistics></Statistics>
+
+      {/* Subscribe to Our Newsletter */}
+      <Newsletter></Newsletter>
     </div>
   );
 };

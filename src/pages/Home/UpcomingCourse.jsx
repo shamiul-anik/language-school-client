@@ -12,26 +12,26 @@ const UpcomingCourse = () => {
           <h1 className="banner-title"><span className="banner-highlighted-text"> Next Course Starting</span> <br /> <span className="text-4xl text-blue-100">LANGUAGE TRAININGS: EFFICIENT NEGOTIATING</span></h1>
           <p className="mt-8 mb-4 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">BECOME A MEMBER TODAY</p>
           
-          <div className="grid justify-center mt-2 md:mt-4 mb-4 md:mb-8 font-bold text-blue-100 grid-flow-col gap-5 text-center auto-cols-max">
-            <div className="flex flex-col border-2 border-teal-200 p-4 rounded-xl">
+          <div className="grid justify-center mt-2 md:mt-4 mb-4 md:mb-8 font-bold text-blue-100 grid-flow-col gap-2 md:gap-5 text-center auto-cols-max">
+            <div className="flex flex-col border-2 border-teal-200 p-2 md:p-4 rounded-xl">
               <span className="countdown font-mono text-5xl">
                 <span style={{ "--value": 15 }}></span>
               </span>
               days
             </div>
-            <div className="flex flex-col border-2 border-teal-200 p-4 rounded-xl">
+            <div className="flex flex-col border-2 border-teal-200 p-2 md:p-4 rounded-xl">
               <span className="countdown font-mono text-5xl">
                 <span style={{ "--value": 10 }}></span>
               </span>
               hours
             </div>
-            <div className="flex flex-col border-2 border-teal-200 p-4 rounded-xl">
+            <div className="flex flex-col border-2 border-teal-200 p-2 md:p-4 rounded-xl">
               <span className="countdown font-mono text-5xl">
                 <span style={{ "--value": 24 }}></span>
               </span>
               min
             </div>
-            <div className="flex flex-col border-2 border-teal-200 p-4 rounded-xl">
+            <div className="flex flex-col border-2 border-teal-200 p-2 md:p-4 rounded-xl">
               <span className="countdown font-mono text-5xl">
                 <span style={{ "--value": 27 }}></span>
               </span>

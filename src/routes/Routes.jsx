@@ -9,6 +9,7 @@ const Home = lazy(() => import("../pages/Home/Home"));
 
 // const PrivateRoute = lazy(() => import("./PrivateRoute"));
 const Contact = lazy(() => import("../pages/Contact/Contact"));
+const About = lazy(() => import("../pages/About/About"));
 const Login = lazy(() => import("../pages/Authentication/Login/Login"));
 const Registration = lazy(() => import("../pages/Authentication/Registration/Registration"));
 const PasswordReset = lazy(() => import("../pages/Authentication/PasswordReset/PasswordReset"));
@@ -44,10 +45,10 @@ export const router = createBrowserRouter([
 				path: 'contact',
 				element: <Suspense fallback={<Loader></Loader>}><Contact></Contact></Suspense>
 			},
-			// {
-			// 	path: 'about',
-			// 	element: <Suspense fallback={<Loader></Loader>}><About></About></Suspense>
-			// }
+			{
+				path: 'about',
+				element: <Suspense fallback={<Loader></Loader>}><About></About></Suspense>
+			}
 		]
 	}
 ]);

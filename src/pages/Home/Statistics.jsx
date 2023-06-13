@@ -6,12 +6,12 @@ import { BiBookContent } from "react-icons/bi";
 
 const Statistics = () => {
   return (
-    <section className="max-w-7xl mx-auto mt-12 lg:mt-32 p-4 md:px-0">
+    <section className="max-w-7xl mx-auto mt-12 lg:mt-32 p-4 md:px-0" data-aos="flip-left">
 
       <SectionTitle heading="Language School In Number" subHeading="Statistics Showcase: Language School's Impact and Growth"></SectionTitle>
 
 
-      <div className="max-w-6xl grid md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6 mt-8 mx-auto">
+      <div className="max-w-[240px] md:max-w-6xl grid md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6 mt-8 mx-auto">
 
         <div className="card card-compact w-full bg-base-100 box-shadow-custom justify-center">
           <div className='px-2 pt-6 pb-2 flex justify-center'>

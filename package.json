@@ -15,6 +15,8 @@
     "aos": "^2.3.4",
     "axios": "^1.4.0",
     "firebase": "^9.22.2",
+    "flowbite": "^1.6.5",
+    "flowbite-react": "^0.4.7",
     "localforage": "^1.10.0",
     "lottie-react": "^2.4.0",
     "match-sorter": "^6.3.1",

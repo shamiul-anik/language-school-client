@@ -3,7 +3,7 @@ import SectionTitle from "../../components/SectionTitle";
 
 const Newsletter = () => {
   return (
-    <section className="max-w-7xl mx-auto mt-12 lg:mt-20">
+    <section className="max-w-7xl mx-auto mt-12 lg:mt-20" data-aos="zoom-in">
       
       <SectionTitle heading="Newsletter" subHeading="Stay in the loop by subscribing to our Newsletter!"></SectionTitle>
 
@@ -17,7 +17,7 @@ const Newsletter = () => {
           <input type="text" placeholder="Enter your email address" className="input input-bordered input-accent focus:border-teal-500 focus:ring-teal-500 outline:border-teal-500 w-full pr-16" />
           <button className="btn absolute btn-accent top-0 right-0 rounded-l-none">
             <BsFillSendFill className='text-lg md:text-xl font-bold' />
-            <span className='hidden md:block ml-2'> Subscribe</span>
+            <span className='hidden md:block ml-1'>Subscribe</span>
           </button>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { useTitle } from '../../hooks/useTitle';
 import HomeBanner from './HomeBanner';
 import HomeCarousel from './HomeCarousel/HomeCarousel';
 import { useEffect } from "react";
+import Statistics from "./Statistics";
 
 
 const Home = () => {
@@ -21,6 +22,9 @@ const Home = () => {
 
       {/* Home Carousel */}
       <HomeCarousel></HomeCarousel>
+
+      {/* Statistics */}
+      <Statistics></Statistics>
     </div>
   );
 };

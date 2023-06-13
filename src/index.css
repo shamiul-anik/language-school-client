@@ -104,6 +104,11 @@
   border-image-source: linear-gradient(99.45deg, #027f81 -9.1%, #FBD0FE 21.61%, #AAF1FE 55.69%);
 }
 
+/* Tooltip */
+/* .tooltip {
+  --tooltip-color: #054d4f;
+} */
+
 /* Custom Text Color */
 .custom-text {
   text-align: justify;

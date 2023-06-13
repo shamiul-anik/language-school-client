@@ -8,6 +8,8 @@ import Statistics from "./Statistics";
 import Newsletter from "./Newsletter";
 import Testimonial from "./Testimonial";
 import UpcomingCourse from "./UpcomingCourse";
+import PopularInstructors from "./PopularInstructors";
+import PopularClasses from "./PopularClasses";
 
 
 const Home = () => {
@@ -25,6 +27,12 @@ const Home = () => {
 
       {/* Home Carousel */}
       <HomeCarousel></HomeCarousel>
+
+      {/* Popular Classes */}
+      <PopularClasses></PopularClasses>
+      
+      {/* Popular Instructors */}
+      <PopularInstructors></PopularInstructors>
 
       {/* Statistics */}
       <Statistics></Statistics>

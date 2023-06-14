@@ -27,17 +27,17 @@ https://language-school-server-production.up.railway.app/
 ## Features of this Project
 1. Full project is made with responsive design for both smartphone and PC.
 2. A Navbar with navigation options, profile picture when logged in and a login button. Active styles for different routes on the Navbar also added.
-<!-- 3. Homepage with a Banner, Gallery, Latest Toys, Trending Toys, Testimonials, What Our Customers Say, Discount and Newsletter sections. Here Latest Toys, Trending Toys, Testimonials, What Our Customers Say, Discount and Newsletter are extra sections added as per the requirements. -->
+3. Homepage with a Carousel, Popular Instructors, Popular Classes, Statistics, Testimonials, Upcoming Course and Newsletter sections. Here Statistics, Testimonials, Upcoming Course and Newsletter are extra sections added as per the requirements.
 4. Lazy image loading feature implemented for better performance and user experience.
-<!-- 5. Clicking on the View Details button will redirect the user to the '/toy/:id' route showing all the details of the toy with images. Unauthorized users will get an warning if they try to visit this page without login. -->
+5. Clicking on the Select Class button will add booking class information in the database.
 6. An Error handling (404) page with error message and animated text and image added for error handling.
-<!-- 7. A Blog page with a banner and answers to questions related to React also added. -->
+7. Dashboard added for Admin, Students and Instructors.
 8. Dynamic title on the tab added which changes with the menu using custom hook.
-<!-- 9. Used Vercel for server side deployment. -->
+9. Used Railway for server side deployment. (As vercel has some issue regarding data loading)
 10. When reloaded page not found error handling for different routes and live server.
 11. Toast alerts for various user activities.
 12. User's Name and Photo URL update functionality added when registering with email and password.
-<!-- 13. PDF creation functionality added in Blog page. -->
+13. React Icons added.
 14. Show/Hide password feature added in Login and Registration page.
 15. Accept terms and conditions to continue with the registration process functionality added.
 16. User profile added with update functionality.
@@ -47,8 +47,6 @@ https://language-school-server-production.up.railway.app/
 20. AOS animation added on different sections of Home page.
 21. React Awesome Reveal animation added on Banner of Home, Instructors, Classes, About, Contact and Dashboard pages.
 22. React Icons added.
-<!-- 21. Search functionality added on All Toys and My Toys page. Indexing is used in Toy Name and Seller Name for better search experience. -->
-<!-- 22. Home page Sub-category section added with dynamic data loading on click from database. -->
 
 ## Packages/Services/Font Used:
 <table>

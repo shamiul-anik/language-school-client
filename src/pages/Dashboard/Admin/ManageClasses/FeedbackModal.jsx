@@ -6,9 +6,9 @@ import { BsSendCheckFill } from 'react-icons/bs';
 import { FaTimesCircle } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 
-const FeedbackModal = ({ isOpen, closeModal, feedbackID }) => {
+const FeedbackModal = ({ isOpen, closeModal, feedbackID, refetch }) => {
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
   const onSubmit = (feedback) => { 
     // console.log("Feedback ID: ", feedbackID);
@@ -18,6 +18,8 @@ const FeedbackModal = ({ isOpen, closeModal, feedbackID }) => {
         .then((data) => {
           console.log(data.data);
           if (data?.data?.modifiedCount) {
+            refetch();
+            reset();
             closeModal();
             Swal.fire({
               position: 'center',

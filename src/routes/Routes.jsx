@@ -25,6 +25,7 @@ const Dashboard = lazy(() => import("../pages/Dashboard/Dashboard"));
 const ManageUsers = lazy(() => import("../pages/Dashboard/Admin/ManageUsers/ManageUsers"));
 const ManageClasses = lazy(() => import("../pages/Dashboard/Admin/ManageClasses/ManageClasses"));
 const AddClass = lazy(() => import("../pages/Dashboard/Instructor/AddClass/AddClass"));
+const MyClasses = lazy(() => import("../pages/Dashboard/Instructor/MyClasses/MyClasses"));
 
 export const router = createBrowserRouter([
 	{
@@ -94,6 +95,10 @@ export const router = createBrowserRouter([
 			{
 				path: '/dashboard/add-a-class',
 				element: <Suspense fallback={<Loader></Loader>}><AddClass></AddClass></Suspense>,
+			},
+			{
+				path: '/dashboard/my-classes',
+				element: <Suspense fallback={<Loader></Loader>}><MyClasses></MyClasses></Suspense>,
 			},
 			// {
 			// 	path: 'login',

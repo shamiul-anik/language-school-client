@@ -10,7 +10,7 @@ const AddClass = () => {
 
   const { user } = useContext(AuthContext);
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, reset, handleSubmit, formState: { errors } } = useForm();
 
   const currentUserName = user?.displayName;
   const currentUserEmail = user?.email;
@@ -34,6 +34,7 @@ const AddClass = () => {
         .then((data) => {
           console.log(data.data);
           if (data?.data?.insertedId) {
+            reset();
             Swal.fire({
               position: 'center',
               icon: 'success',

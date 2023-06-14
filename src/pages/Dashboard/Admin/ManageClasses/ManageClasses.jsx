@@ -4,6 +4,7 @@ import SingleClass from "./SingleClass";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { AuthContext } from "../../../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const ManageClasses = () => {
 
@@ -29,7 +30,28 @@ const ManageClasses = () => {
       console.log(res?.data);
       return res?.data;
     },
-  })
+  });
+
+  const handleApprove = (classData) => {
+    console.log("Inside Approve: ", classData._id);
+    if (classData) {
+      axios.patch(`${import.meta.env.VITE_API_URL}/class/${classData._id}`).then(
+        (data) => {
+          console.log("Approve Status:", data?.data);
+          if (data?.data.modifiedCount) {
+            refetch();
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: `${classData.class_name} is approved!`,
+              showConfirmButton: false,
+              timer: 3000
+            });
+          }
+        }
+      );
+    }
+  };
 
   return (
     <>
@@ -77,7 +99,7 @@ const ManageClasses = () => {
             </thead>
             <tbody>
               {
-                allClassData?.map((classData, index) => <SingleClass key={classData._id} classData={classData} index={index} openModal={openModal} closeModal={closeModal} ></SingleClass>)
+                allClassData?.map((classData, index) => <SingleClass key={classData._id} classData={classData} index={index} handleApprove={handleApprove} openModal={openModal} closeModal={closeModal} ></SingleClass>)
               }
             </tbody>
           </table>

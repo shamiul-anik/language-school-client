@@ -47,22 +47,22 @@ const ManageClasses = () => {
                   #
                 </th>
                 <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
-                  Class Image
+                  Class <br/> Image
                 </th>
                 <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
-                  Class Name
+                  Class <br/> Name
                 </th>
                 <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
-                  Instructor Name
+                  Instructor <br/> Name
                 </th>
                 <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
-                  Instructor Email
+                  Instructor <br/> Email
                 </th>
                 <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
-                  Available Seats
+                  Available <br/> Seats
                 </th>
                 <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
-                  Enrolled Students
+                  Enrolled <br/> Students
                 </th>
                 <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                   Price

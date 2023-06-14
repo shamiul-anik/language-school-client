@@ -22,11 +22,11 @@ const PopularClassCard = ({ popularClass }) => {
           <p className='font-medium text-base text-center mt-1 mb-1 text-slate-600'>Total Enrolled Students: {enrolled_students}</p>
           <p className='font-medium text-xl text-center mt-2 mb-2 text-slate-600'>Price: ${class_price}</p>
         </div>
-        <button className="flex my-2 w-fit mx-auto items-center justify-center p-0.5 overflow-hidden text-lg font-semibold text-teal-700 rounded-lg bg-gradient-to-br from-teal-600 to-teal-500 hover:from-teal-600 hover:to-teal-500 hover:text-white dark:text-white focus:ring-2 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800">
+        {/* <button className="flex my-2 w-fit mx-auto items-center justify-center p-0.5 overflow-hidden text-lg font-semibold text-teal-700 rounded-lg bg-gradient-to-br from-teal-600 to-teal-500 hover:from-teal-600 hover:to-teal-500 hover:text-white dark:text-white focus:ring-2 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800">
           <span className="flex items-center justify-center w-full px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md hover:bg-opacity-0">
             <MdOutlineAddTask className="mr-2 self-center" /> Select Class
           </span>
-        </button>
+        </button> */}
         <div className='border-t border-slate-300 my-4'></div>
         <div className="p-4 pt-0">
           <div className='flex items-center justify-center'>

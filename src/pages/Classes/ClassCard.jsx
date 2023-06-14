@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import LazyLoad from 'react-lazy-load';
 import { MdOutlineAddTask } from "react-icons/md";
 
-const ClassCard = ({ classData }) => {
+const ClassCard = ({ classData, userRole, handleSelectClass }) => {
   // console.log(classData);
   const { class_name, class_image, instructor_name, available_seats, class_price } = classData || {};
   return (
@@ -20,10 +20,14 @@ const ClassCard = ({ classData }) => {
           <p className='font-medium text-base text-center mt-3 mb-1 text-slate-600'>Available Seats: {available_seats}</p>
           <p className='font-medium text-lg text-center mb-2 text-slate-600'>Price: ${class_price}</p>
         </div>
-        <button className="flex my-2 w-fit mx-auto items-center justify-center p-0.5 overflow-hidden text-lg font-semibold text-teal-700 rounded-lg bg-gradient-to-br from-teal-600 to-teal-500 hover:from-teal-600 hover:to-teal-500 hover:text-white dark:text-white focus:ring-2 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800">
-          <span className="flex items-center justify-center w-full px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md hover:bg-opacity-0">
+        {/* <button className="flex my-2 w-fit mx-auto items-center justify-center p-0.5 overflow-hidden text-lg font-semibold text-teal-700 rounded-lg bg-gradient-to-br from-teal-600 to-teal-500 hover:from-teal-600 hover:to-teal-500 hover:text-white dark:text-white focus:ring-2 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 disabled:from-slate-600 disabled:to-slate-500 disabled:text-teal-700 disabled:hover:from-slate-600 disabled:hover:to-slate-500" disabled>
+          <span className="flex items-center justify-center w-full px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md hover:bg-opacity-0 disabled:bg-slate-500">
             <MdOutlineAddTask className="mr-2 self-center" /> Select Class
           </span>
+        </button> */}
+        <button onClick={ () => handleSelectClass(classData)} type="button" className="flex mt-2 w-48 mx-auto justify-center items-center text-white bg-gradient-to-br from-teal-500 to-teal-600 transition-all hover:duration-300 hover:from-teal-600 hover:to-teal-700 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-teal-200 dark:focus:ring-teal-800 font-normal rounded-md text-lg px-3 py-2.5 text-center disabled:from-slate-600 disabled:to-slate-700" disabled={available_seats === 0 || userRole === "admin" || userRole === "instructor"} >
+          <MdOutlineAddTask className='gr-icon w-4 h-4 mr-2' />
+          Select Class
         </button>
         <div className='border-t border-slate-300 my-4'></div>
         <div className="p-4 pt-0">

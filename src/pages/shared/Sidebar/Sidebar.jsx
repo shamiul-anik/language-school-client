@@ -159,7 +159,7 @@ const Sidebar = () => {
                         <span className='mx-4 font-medium'>My Enrolled Classes</span>
                       </NavLink>
                       <NavLink
-                        to='/dashboard/payment-history'
+                        to='/dashboard/my-payment-history'
                         className={({ isActive }) =>
                           `flex items-center px-4 py-2 transition-colors duration-300 transform hover:bg-teal-200 hover:text-teal-700 ${isActive ? 'bg-teal-200 text-teal-700' : 'text-teal-600'}`
                         }

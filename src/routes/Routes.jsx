@@ -26,6 +26,9 @@ const ManageUsers = lazy(() => import("../pages/Dashboard/Admin/ManageUsers/Mana
 const ManageClasses = lazy(() => import("../pages/Dashboard/Admin/ManageClasses/ManageClasses"));
 const AddClass = lazy(() => import("../pages/Dashboard/Instructor/AddClass/AddClass"));
 const MyClasses = lazy(() => import("../pages/Dashboard/Instructor/MyClasses/MyClasses"));
+const MySelectedClasses = lazy(() => import("../pages/Dashboard/Student/MySelectedClasses/MySelectedClasses"));
+const MyEnrolledClasses = lazy(() => import("../pages/Dashboard/Student/MyEnrolledClasses/MyEnrolledClasses"));
+const MyPaymentHistory = lazy(() => import("../pages/Dashboard/Student/MyPaymentHistory/MyPaymentHistory"));
 
 export const router = createBrowserRouter([
 	{
@@ -81,10 +84,6 @@ export const router = createBrowserRouter([
 				element: <Suspense fallback={<Loader></Loader>}><Dashboard></Dashboard></Suspense>,
 			},
 			{
-				path: '/dashboard/my-selected-classes',
-				element: <Suspense fallback={<Loader></Loader>}><p>My Selected Classes</p></Suspense>,
-			},
-			{
 				path: '/dashboard/manage-users',
 				element: <Suspense fallback={<Loader></Loader>}><ManageUsers></ManageUsers></Suspense>,
 			},
@@ -100,30 +99,18 @@ export const router = createBrowserRouter([
 				path: '/dashboard/my-classes',
 				element: <Suspense fallback={<Loader></Loader>}><MyClasses></MyClasses></Suspense>,
 			},
-			// {
-			// 	path: 'login',
-			// 	element: <Suspense fallback={<Loader></Loader>}><Login></Login></Suspense>
-			// },
-			// {
-			// 	path: 'registration',
-			// 	element: <Suspense fallback={<Loader></Loader>}><Registration></Registration></Suspense>
-			// },
-			// {
-			// 	path: 'password-reset',
-			// 	element: <Suspense fallback={<Loader></Loader>}><PasswordReset></PasswordReset></Suspense>
-			// },
-			// {
-			// 	path: 'profile',
-			// 	element: <Suspense fallback={<Loader></Loader>}><Profile></Profile></Suspense>
-			// },
-			// {
-			// 	path: 'contact',
-			// 	element: <Suspense fallback={<Loader></Loader>}><Contact></Contact></Suspense>
-			// },
-			// {
-			// 	path: 'about',
-			// 	element: <Suspense fallback={<Loader></Loader>}><About></About></Suspense>
-			// }
+			{
+				path: '/dashboard/my-selected-classes',
+				element: <Suspense fallback={<Loader></Loader>}><MySelectedClasses></MySelectedClasses></Suspense>,
+			},
+			{
+				path: '/dashboard/my-enrolled-classes',
+				element: <Suspense fallback={<Loader></Loader>}><MyEnrolledClasses></MyEnrolledClasses></Suspense>,
+			},
+			{
+				path: '/dashboard/my-payment-history',
+				element: <Suspense fallback={<Loader></Loader>}><MyPaymentHistory></MyPaymentHistory></Suspense>,
+			}
 		]
 	}
 ]);

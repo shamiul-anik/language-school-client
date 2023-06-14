@@ -22,20 +22,22 @@ const ManageUsers = () => {
     },
   })
 
-  const handleMakeInstructor = (user) => {
+  const handleMakeInstructor = (userInfo) => {
     console.log("Inside Make Instructor: ", user._id);
-    if (user) {
-      axios.patch(`${import.meta.env.VITE_API_URL}/user/instructor/${user._id}`).then(
+    if (userInfo) {
+      axios.patch(`${import.meta.env.VITE_API_URL}/user/instructor/${userInfo._id}`).then(
         (data) => {
           // console.log("Data:", data?.data);
           if (data?.data.modifiedCount) {
-            setUserRole("instructor");
+            if (user?.email === userInfo.email) {
+              setUserRole("instructor");
+            }
             refetch();
             // setDisableInstructorBtn(true);
             Swal.fire({
               position: 'center',
               icon: 'success',
-              title: `${user.name} is an Instructor Now!`,
+              title: `${userInfo.name} is an Instructor Now!`,
               showConfirmButton: false,
               timer: 3000
             });
@@ -45,21 +47,23 @@ const ManageUsers = () => {
     }
   };
   
-  const handleMakeAdmin = (user) => {
+  const handleMakeAdmin = (userInfo) => {
     console.log("Inside Make Admin: ", user._id);
-    if (user) {
-      axios.patch(`${import.meta.env.VITE_API_URL}/user/admin/${user._id}`).then(
+    if (userInfo) {
+      axios.patch(`${import.meta.env.VITE_API_URL}/user/admin/${userInfo._id}`).then(
         (data) => {
           // console.log("Data:", data?.data);
           if(data?.data.modifiedCount) {
-            setUserRole("admin");
+            if (user?.email === userInfo.email) {
+              setUserRole("admin");
+            }
             refetch();
             // setDisableAdminBtn(true);
             // toast.success(`${user.name} is an Admin now!`);
             Swal.fire({
               position: 'center',
               icon: 'success',
-              title: `${user.name} is an Admin Now!`,
+              title: `${userInfo.name} is an Admin Now!`,
               showConfirmButton: false,
               timer: 3000
             });
@@ -80,22 +84,22 @@ const ManageUsers = () => {
         <table className="border-2 border-slate-200 w-full text-sm text-left text-gray-1000 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th scope="col" className="text-center bg-gray-100 px-3 py-4">
+              <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 #
               </th>
-              <th scope="col" className="text-center bg-gray-100 px-3 py-4">
+              <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Photo
               </th>
-              <th scope="col" className="text-center bg-gray-100 px-3 py-4">
+              <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Name
               </th>
-              <th scope="col" className="text-center bg-gray-100 px-3 py-4">
+              <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Email
               </th>
-              <th scope="col" className="text-center bg-gray-100 px-3 py-4">
+              <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Role
               </th>
-              <th scope="col" className="text-center bg-gray-100 px-3 py-4">
+              <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2">
                 Action
               </th>
             </tr>

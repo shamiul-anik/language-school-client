@@ -5,14 +5,15 @@ import Aos from 'aos';
 import { Fade } from "react-awesome-reveal";
 import Logo from '../../../assets/images/logo.png';
 import UserImage from '../../../assets/images/user.png'
-import { AiOutlineBars } from 'react-icons/ai'
+import { RiDashboardFill } from "react-icons/ri";
 import { BsBookmarkCheckFill } from 'react-icons/bs'
 import { toast } from 'react-toastify';
 import { BiDetail, BiHome, BiLogOut } from 'react-icons/bi';
 import { ImProfile } from 'react-icons/im';
 import { GiTeacher } from 'react-icons/gi';
 import { LuContact } from 'react-icons/lu';
-import { FaBook, FaBookMedical, FaChalkboardTeacher, FaCheckDouble, FaMoneyCheck, FaUserCheck, FaWallet } from 'react-icons/fa';
+import { FaBook, FaBookMedical, FaBookOpen, FaChalkboardTeacher, FaCheckDouble, FaMoneyCheck, FaUserCheck, FaWallet } from 'react-icons/fa';
+import { AiOutlineBars } from 'react-icons/ai';
 
 const Sidebar = () => {
   
@@ -125,6 +126,15 @@ const Sidebar = () => {
             <nav>
               <>
                 {/* Dashboard Menu Links */}
+                {/* <NavLink
+                  to='/dashboard'
+                  className={({ isActive }) =>
+                    `flex items-center px-4 py-2 transition-colors duration-300 transform hover:bg-teal-200 hover:text-teal-700 ${isActive ? 'bg-teal-200 text-teal-700' : 'text-teal-600'}`
+                  }
+                >
+                  <FaBookOpen className='w-5 h-5' />
+                  <span className='mx-4 font-medium'>Dashboard</span>
+                </NavLink> */}
                 
                 {/* Student */}
                 { 

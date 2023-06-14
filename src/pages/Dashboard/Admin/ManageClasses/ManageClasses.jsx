@@ -12,31 +12,31 @@ const ManageClasses = () => {
         <table className="border-2 border-slate-200 w-full text-sm text-left text-gray-1000 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th scope="col" className="text-center bg-gray-100 px-3 py-4">
+              <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 #
               </th>
-              <th scope="col" className="text-center bg-gray-100 px-3 py-4">
+              <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Class Image
               </th>
-              <th scope="col" className="text-center bg-gray-100 px-3 py-4">
+              <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Class Name
               </th>
-              <th scope="col" className="text-center bg-gray-100 px-3 py-4">
+              <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Instructor Name
               </th>
-              <th scope="col" className="text-center bg-gray-100 px-3 py-4">
+              <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Instructor Email
               </th>
-              <th scope="col" className="text-center bg-gray-100 px-3 py-4">
+              <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Available Seats
               </th>
-              <th scope="col" className="text-center bg-gray-100 px-3 py-4">
+              <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Price
               </th>
-              <th scope="col" className="text-center bg-gray-100 px-3 py-4">
+              <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Status
               </th>
-              <th scope="col" className="text-center bg-gray-100 px-3 py-4">
+              <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2">
                 Action
               </th>
             </tr>

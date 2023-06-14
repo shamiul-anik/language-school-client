@@ -6,33 +6,33 @@ import { Link } from "react-router-dom";
 const SingleClass = () => {
   return (
     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-      <td className="px-2 py-2 whitespace-nowrap text-center">
+      <td className="px-2 py-2 whitespace-nowrap text-center border-r-2">
         {/* {index + 1} */}
       </td>
-      <td className="px-2 py-2 text-center flex items-center">
-        <div className="avatar">
+      <td className="px-2 py-2 text-center border-r-2">
+        <div className="avatar flex items-center justify-center ">
           <div className="w-24 rounded-xl">
             {/* <img src={photo_url} alt={`Profile of ${name}`} /> */}
             Class Image
           </div>
         </div>
       </td>
-      <td className="px-2 py-2">
+      <td className="px-2 py-2 border-r-2">
         Class Name
       </td>
-      <td className="px-2 py-2 text-center">
+      <td className="px-2 py-2 text-center border-r-2">
         Instructor Name
       </td>
-      <td className="px-2 py-2 text-center uppercase">
+      <td className="px-2 py-2 text-center border-r-2">
         Instructor Email
       </td>
-      <td className="px-2 py-2 text-center uppercase">
+      <td className="px-2 py-2 text-center border-r-2">
         Available Seats
       </td>
-      <td className="px-2 py-2 text-center uppercase">
+      <td className="px-2 py-2 text-center border-r-2">
         Price
       </td>
-      <td className="px-2 py-2 text-center uppercase">
+      <td className="px-2 py-2 text-center uppercase border-r-2">
         Status
       </td>
       <td className="px-2 py-2 text-center">

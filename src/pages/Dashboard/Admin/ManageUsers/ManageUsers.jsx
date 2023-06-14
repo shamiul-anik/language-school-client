@@ -3,10 +3,11 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
 import SingleUser from "./SingleUser";
+import Swal from "sweetalert2";
 
 const ManageUsers = () => {
 
-  const { user, loading, setLoading } = useContext(AuthContext);
+  const { user, setUserRole, loading, setLoading } = useContext(AuthContext);
   const [disableInstructorBtn, setDisableInstructorBtn] = useState(false);
   const [disableAdminBtn, setDisableAdminBtn] = useState(false);
 
@@ -21,19 +22,52 @@ const ManageUsers = () => {
     },
   })
 
-  const handleMakeInstructor = (id) => {
-    console.log("Inside Make Instructor: ", id);
-    setDisableInstructorBtn(true);
-    refetch();
+  const handleMakeInstructor = (user) => {
+    console.log("Inside Make Instructor: ", user._id);
+    if (user) {
+      axios.patch(`${import.meta.env.VITE_API_URL}/user/instructor/${user._id}`).then(
+        (data) => {
+          // console.log("Data:", data?.data);
+          if (data?.data.modifiedCount) {
+            setUserRole("instructor");
+            refetch();
+            setDisableInstructorBtn(true);
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: `${user.name} is an Instructor Now!`,
+              showConfirmButton: false,
+              timer: 3000
+            });
+          }
+        }
+      );
+    }
   };
   
-  const handleMakeAdmin = (id) => {
-    console.log("Inside Make Admin: ", id);
-    setDisableAdminBtn(true);
-    refetch();
+  const handleMakeAdmin = (user) => {
+    console.log("Inside Make Admin: ", user._id);
+    if (user) {
+      axios.patch(`${import.meta.env.VITE_API_URL}/user/admin/${user._id}`).then(
+        (data) => {
+          // console.log("Data:", data?.data);
+          if(data?.data.modifiedCount) {
+            setUserRole("admin");
+            refetch();
+            setDisableAdminBtn(true);
+            // toast.success(`${user.name} is an Admin now!`);
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: `${user.name} is an Admin Now!`,
+              showConfirmButton: false,
+              timer: 3000
+            });
+          }
+        }
+      );
+    }
   };
-
-  console.log(usersData);
 
   return (
     <section className="max-w-7xl mx-auto mt-4 lg:mt-8 p-4 md:px-0">

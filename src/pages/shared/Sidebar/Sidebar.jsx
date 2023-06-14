@@ -141,7 +141,7 @@ const Sidebar = () => {
                   userRole === "student" && 
                     <>
                       <NavLink
-                        to='/my-selected-classes'
+                        to='/dashboard/my-selected-classes'
                         className={({ isActive }) =>
                           `flex items-center px-4 py-2 transition-colors duration-300 transform hover:bg-teal-200 hover:text-teal-700 ${isActive ? 'bg-teal-200 text-teal-700' : 'text-teal-600'}`
                         }
@@ -150,7 +150,7 @@ const Sidebar = () => {
                         <span className='mx-4 font-medium'>My Selected Classes</span>
                       </NavLink>
                       <NavLink
-                        to='/my-enrolled-classes'
+                        to='/dashboard/my-enrolled-classes'
                         className={({ isActive }) =>
                           `flex items-center px-4 py-2 transition-colors duration-300 transform hover:bg-teal-200 hover:text-teal-700 ${isActive ? 'bg-teal-200 text-teal-700' : 'text-teal-600'}`
                         }
@@ -159,7 +159,7 @@ const Sidebar = () => {
                         <span className='mx-4 font-medium'>My Enrolled Classes</span>
                       </NavLink>
                       <NavLink
-                        to='/payment-history'
+                        to='/dashboard/payment-history'
                         className={({ isActive }) =>
                           `flex items-center px-4 py-2 transition-colors duration-300 transform hover:bg-teal-200 hover:text-teal-700 ${isActive ? 'bg-teal-200 text-teal-700' : 'text-teal-600'}`
                         }
@@ -176,7 +176,7 @@ const Sidebar = () => {
                   userRole === "instructor" &&
                     <>
                       <NavLink
-                        to='/add-a-class'
+                        to='/dashboard/add-a-class'
                         className={({ isActive }) =>
                           `flex items-center px-4 py-2 transition-colors duration-300 transform hover:bg-teal-200 hover:text-teal-700 ${isActive ? 'bg-teal-200 text-teal-700' : 'text-teal-600'}`
                         }
@@ -185,7 +185,7 @@ const Sidebar = () => {
                         <span className='mx-4 font-medium'>Add a Class</span>
                       </NavLink>
                       <NavLink
-                        to='/my-classes'
+                        to='/dashboard/my-classes'
                         className={({ isActive }) =>
                           `flex items-center px-4 py-2 transition-colors duration-300 transform hover:bg-teal-200 hover:text-teal-700 ${isActive ? 'bg-teal-200 text-teal-700' : 'text-teal-600'}`
                         }

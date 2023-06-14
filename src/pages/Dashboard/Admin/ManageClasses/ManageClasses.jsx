@@ -35,7 +35,7 @@ const ManageClasses = () => {
   const handleApprove = (classData) => {
     console.log("Inside Approve: ", classData._id);
     if (classData) {
-      axios.patch(`${import.meta.env.VITE_API_URL}/class/${classData._id}`).then(
+      axios.patch(`${import.meta.env.VITE_API_URL}/class/approved/${classData._id}`).then(
         (data) => {
           console.log("Approve Status:", data?.data);
           if (data?.data.modifiedCount) {
@@ -44,6 +44,27 @@ const ManageClasses = () => {
               position: 'center',
               icon: 'success',
               title: `${classData.class_name} is approved!`,
+              showConfirmButton: false,
+              timer: 3000
+            });
+          }
+        }
+      );
+    }
+  };
+  
+  const handleDeny = (classData) => {
+    console.log("Inside Deny: ", classData._id);
+    if (classData) {
+      axios.patch(`${import.meta.env.VITE_API_URL}/class/denied/${classData._id}`).then(
+        (data) => {
+          console.log("Deny Status:", data?.data);
+          if (data?.data.modifiedCount) {
+            refetch();
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: `${classData.class_name} is denied!`,
               showConfirmButton: false,
               timer: 3000
             });
@@ -99,7 +120,7 @@ const ManageClasses = () => {
             </thead>
             <tbody>
               {
-                allClassData?.map((classData, index) => <SingleClass key={classData._id} classData={classData} index={index} handleApprove={handleApprove} openModal={openModal} closeModal={closeModal} ></SingleClass>)
+                allClassData?.map((classData, index) => <SingleClass key={classData._id} classData={classData} index={index} handleApprove={handleApprove} handleDeny={handleDeny} openModal={openModal} closeModal={closeModal} ></SingleClass>)
               }
             </tbody>
           </table>

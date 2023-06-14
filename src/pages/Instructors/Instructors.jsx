@@ -19,7 +19,6 @@ const Instructors = () => {
   }, []);
 
 
-  // TODO: Change to AxiosSecure
   const { data: allInstructors = [], refetch } = useQuery({
     queryKey: ["allInstructors", user?.email],
     enabled: !loading,

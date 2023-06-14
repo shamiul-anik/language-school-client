@@ -8,7 +8,7 @@ import Newsletter from "./Newsletter";
 import Testimonial from "./Testimonial";
 import UpcomingCourse from "./UpcomingCourse";
 import PopularInstructors from "./PopularInstructors";
-import PopularClasses from "./PopularClasses";
+import PopularClasses from "./PopularClasses/PopularClasses";
 
 
 const Home = () => {

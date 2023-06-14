@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import LazyLoad from 'react-lazy-load';
 
 const InstructorCard = ({ instructorData }) => {
-  console.log(instructorData);
+  // console.log(instructorData);
   const { email, name, photo_url } = instructorData || {};
   return (
     <div className="flex card card-compact w-full bg-base-100 box-shadow-custom group" data-aos="zoom-in">

@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { MdOutlineAddTask } from 'react-icons/md';
 import LazyLoad from 'react-lazy-load';
-import { MdOutlineAddTask } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
-const ClassCard = ({ classData }) => {
-  // console.log(classData);
-  const { class_name, class_image, instructor_name, available_seats, class_price } = classData || {};
+const PopularClassCard = ({ popularClass }) => {
+
+  const { class_name, class_image, instructor_name, available_seats, enrolled_students, class_price } = popularClass || {};
+  
   return (
     <div>
       <div className={`flex card card-compact w-full ${available_seats == 0 ? 'bg-red-200' : 'bg-base-100'} box-shadow-custom group`} data-aos="zoom-in">
@@ -18,7 +19,8 @@ const ClassCard = ({ classData }) => {
           <h3 className='text-center text-xl text-slate-700 font-bold'>{class_name}</h3>
           <h4 className='text-center text-lg text-slate-500 font-semibold mt-2'>{instructor_name}</h4>
           <p className='font-medium text-base text-center mt-3 mb-1 text-slate-600'>Available Seats: {available_seats}</p>
-          <p className='font-medium text-lg text-center mb-2 text-slate-600'>Price: ${class_price}</p>
+          <p className='font-medium text-base text-center mt-1 mb-1 text-slate-600'>Total Enrolled Students: {enrolled_students}</p>
+          <p className='font-medium text-xl text-center mt-2 mb-2 text-slate-600'>Price: ${class_price}</p>
         </div>
         <button className="flex my-2 w-fit mx-auto items-center justify-center p-0.5 overflow-hidden text-lg font-semibold text-teal-700 rounded-lg bg-gradient-to-br from-teal-600 to-teal-500 hover:from-teal-600 hover:to-teal-500 hover:text-white dark:text-white focus:ring-2 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800">
           <span className="flex items-center justify-center w-full px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md hover:bg-opacity-0">
@@ -40,4 +42,4 @@ const ClassCard = ({ classData }) => {
   );
 };
 
-export default ClassCard;
+export default PopularClassCard;

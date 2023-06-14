@@ -19,7 +19,6 @@ const Classes = () => {
   }, []);
 
 
-  // TODO: Change to AxiosSecure
   const { data: allApprovedClasses = [], refetch } = useQuery({
     queryKey: ["allApprovedClasses", user?.email, userRole],
     enabled: !loading,

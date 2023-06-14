@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useTitle } from '../../../../hooks/useTitle';
+import { AuthContext } from '../../../../providers/AuthProvider';
+import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
+import MySelectedClass from './MySelectedClass';
 
 const MySelectedClasses = () => {
+
+  useTitle("My Selected Classes");
+
+  const { user, userRole, setUserRole, loading, setLoading } = useContext(AuthContext);
+
+  // TODO: Change to AxiosSecure
+  const { data: mySelectedClasses = [], refetch } = useQuery({
+    queryKey: ["mySelectedClasses", user?.email, userRole],
+    enabled: !loading,
+    queryFn: async () => {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/my-selected-classes/${user?.email}`);
+      setLoading(false);
+      console.log(res?.data);
+      return res?.data;
+    },
+  });
+
   return (
     <section className="max-w-7xl mx-auto mt-4 lg:mt-8 p-4 md:px-0">
 
       <div>
-        {/* <h1 className="text-3xl font-bold text-center mb-6">Total Booked Classes: {myClassDetails?.length}</h1> */}
+        <h1 className="text-3xl font-bold text-center mb-6">Total Selected Class: {mySelectedClasses?.length}</h1>
       </div>
 
       <div className="relative overflow-x-auto">
@@ -45,9 +67,9 @@ const MySelectedClasses = () => {
             </tr>
           </thead>
           <tbody>
-            {/* {
-              myClassDetails?.map((classData, index) => <MySingleClass key={classData._id} classData={classData} index={index}></MySingleClass>)
-            } */}
+            {
+              mySelectedClasses?.map((mySelectedClass, index) => <MySelectedClass key={mySelectedClass._id} mySelectedClass={mySelectedClass} index={index}></MySelectedClass>)
+            }
           </tbody>
         </table>
       </div>

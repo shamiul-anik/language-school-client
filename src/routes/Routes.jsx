@@ -23,6 +23,7 @@ const Profile = lazy(() => import("../pages/Authentication/Profile/Profile"));
 const DashboardLayout = lazy(() => import("../layouts/DashboardLayout"));
 const Dashboard = lazy(() => import("../pages/Dashboard/Dashboard"));
 const ManageUsers = lazy(() => import("../pages/Dashboard/Admin/ManageUsers/ManageUsers"));
+const ManageClasses = lazy(() => import("../pages/Dashboard/Admin/ManageClasses/ManageClasses"));
 
 export const router = createBrowserRouter([
 	{
@@ -84,6 +85,10 @@ export const router = createBrowserRouter([
 			{
 				path: '/dashboard/manage-users',
 				element: <Suspense fallback={<Loader></Loader>}><ManageUsers></ManageUsers></Suspense>,
+			},
+			{
+				path: '/dashboard/manage-classes',
+				element: <Suspense fallback={<Loader></Loader>}><ManageClasses></ManageClasses></Suspense>,
 			},
 			// {
 			// 	path: '/classes',

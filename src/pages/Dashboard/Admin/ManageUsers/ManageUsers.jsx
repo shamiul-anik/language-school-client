@@ -8,8 +8,8 @@ import Swal from "sweetalert2";
 const ManageUsers = () => {
 
   const { user, setUserRole, loading, setLoading } = useContext(AuthContext);
-  const [disableInstructorBtn, setDisableInstructorBtn] = useState(false);
-  const [disableAdminBtn, setDisableAdminBtn] = useState(false);
+  // const [disableInstructorBtn, setDisableInstructorBtn] = useState(false);
+  // const [disableAdminBtn, setDisableAdminBtn] = useState(false);
 
   // TODO: Change to AxiosSecure
   const { data: usersData = [], refetch } = useQuery({
@@ -31,7 +31,7 @@ const ManageUsers = () => {
           if (data?.data.modifiedCount) {
             setUserRole("instructor");
             refetch();
-            setDisableInstructorBtn(true);
+            // setDisableInstructorBtn(true);
             Swal.fire({
               position: 'center',
               icon: 'success',
@@ -54,7 +54,7 @@ const ManageUsers = () => {
           if(data?.data.modifiedCount) {
             setUserRole("admin");
             refetch();
-            setDisableAdminBtn(true);
+            // setDisableAdminBtn(true);
             // toast.success(`${user.name} is an Admin now!`);
             Swal.fire({
               position: 'center',
@@ -102,7 +102,7 @@ const ManageUsers = () => {
           </thead>
           <tbody>
             {
-              usersData.map((user, index) => <SingleUser key={user._id} user={user} index={index} handleMakeInstructor={handleMakeInstructor} disableInstructorBtn={disableInstructorBtn} handleMakeAdmin={handleMakeAdmin} disableAdminBtn={disableAdminBtn} ></SingleUser>)
+              usersData?.map((user, index) => <SingleUser key={user._id} user={user} index={index} handleMakeInstructor={handleMakeInstructor} handleMakeAdmin={handleMakeAdmin}></SingleUser>)
             }
           </tbody>
         </table>

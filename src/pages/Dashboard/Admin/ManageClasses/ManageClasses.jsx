@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import FeedbackModal from "./FeedbackModal";
 import SingleClass from "./SingleClass";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { AuthContext } from "../../../../providers/AuthProvider";
 
 const ManageClasses = () => {
 
+  const { user, setUserRole, loading, setLoading } = useContext(AuthContext);
+  
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -14,12 +19,24 @@ const ManageClasses = () => {
     setIsOpen(false)
   };
 
+  // TODO: Change to AxiosSecure
+  const { data: allClassData = [], refetch } = useQuery({
+    queryKey: ["allClassData", user?.email],
+    enabled: !loading,
+    queryFn: async () => {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/classes`);
+      setLoading(false);
+      console.log(res?.data);
+      return res?.data;
+    },
+  })
+
   return (
     <>
       <section className="max-w-7xl mx-auto mt-4 lg:mt-8 p-4 md:px-0">
 
         <div>
-          <h1 className="text-3xl font-bold text-center mb-6">Total Classes: ??</h1>
+          <h1 className="text-3xl font-bold text-center mb-6">Total Classes: {allClassData?.length}</h1>
         </div>
 
         <div className="relative overflow-x-auto">
@@ -45,6 +62,9 @@ const ManageClasses = () => {
                   Available Seats
                 </th>
                 <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
+                  Enrolled Students
+                </th>
+                <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                   Price
                 </th>
                 <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
@@ -56,10 +76,9 @@ const ManageClasses = () => {
               </tr>
             </thead>
             <tbody>
-              {/* {
-              usersData.map((user, index) => <SingleUser key={user._id} user={user} index={index} handleMakeInstructor={handleMakeInstructor} disableInstructorBtn={disableInstructorBtn} handleMakeAdmin={handleMakeAdmin} disableAdminBtn={disableAdminBtn} ></SingleUser>)
-            } */}
-              <SingleClass openModal={openModal} closeModal={closeModal}></SingleClass>
+              {
+                allClassData?.map((classData, index) => <SingleClass key={classData._id} classData={classData} index={index} openModal={openModal} closeModal={closeModal} ></SingleClass>)
+              }
             </tbody>
           </table>
         </div>

@@ -239,6 +239,10 @@
   justify-content: center;
 }
 
+/* Set Color to Gr Icons */
+.gr-icon path{
+  stroke: currentColor;
+}
 
 
 /* Responsive Design */

@@ -8,11 +8,11 @@ import UserImage from '../../../assets/images/user.png'
 import { AiOutlineBars } from 'react-icons/ai'
 import { BsBookmarkCheckFill } from 'react-icons/bs'
 import { toast } from 'react-toastify';
-import { BiDetail, BiHome, BiLogOut, BiUser } from 'react-icons/bi';
+import { BiDetail, BiHome, BiLogOut } from 'react-icons/bi';
 import { ImProfile } from 'react-icons/im';
 import { GiTeacher } from 'react-icons/gi';
 import { LuContact } from 'react-icons/lu';
-import { FaBook, FaBookMedical, FaCheckDouble, FaMoneyCheck, FaUserCheck, FaWallet } from 'react-icons/fa';
+import { FaBook, FaBookMedical, FaChalkboardTeacher, FaCheckDouble, FaMoneyCheck, FaUserCheck, FaWallet } from 'react-icons/fa';
 
 const Sidebar = () => {
   
@@ -234,7 +234,7 @@ const Sidebar = () => {
               `flex items-center px-4 py-2 transition-colors duration-300 transform hover:bg-teal-200 hover:text-teal-700 ${isActive ? 'bg-teal-200 text-teal-700' : 'text-teal-600'}`
             }
           >
-            <BiUser className='w-5 h-5' />
+            <FaChalkboardTeacher className='w-5 h-5' />
             <span className='mx-4 font-medium'>Instructors</span>
           </NavLink>
           <NavLink

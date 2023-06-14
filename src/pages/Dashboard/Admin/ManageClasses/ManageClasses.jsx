@@ -11,6 +11,8 @@ const ManageClasses = () => {
   const { user, setUserRole, loading, setLoading } = useContext(AuthContext);
   
   const [isOpen, setIsOpen] = useState(false);
+  
+  const [feedbackID, setFeedbackID] = useState("");
 
   const openModal = () => {
     setIsOpen(true);
@@ -27,7 +29,7 @@ const ManageClasses = () => {
     queryFn: async () => {
       const res = await axios.get(`${import.meta.env.VITE_API_URL}/classes`);
       setLoading(false);
-      console.log(res?.data);
+      // console.log(res?.data);
       return res?.data;
     },
   });
@@ -74,6 +76,12 @@ const ManageClasses = () => {
     }
   };
 
+  const handleFeedback = (classData) => {
+    openModal();
+    // console.log("Feedback ID: ", classData._id);
+    setFeedbackID(classData._id);
+  };
+  
   return (
     <>
       <section className="max-w-7xl mx-auto mt-4 lg:mt-8 p-4 md:px-0">
@@ -120,7 +128,7 @@ const ManageClasses = () => {
             </thead>
             <tbody>
               {
-                allClassData?.map((classData, index) => <SingleClass key={classData._id} classData={classData} index={index} handleApprove={handleApprove} handleDeny={handleDeny} openModal={openModal} closeModal={closeModal} ></SingleClass>)
+                allClassData?.map((classData, index) => <SingleClass key={classData._id} classData={classData} index={index} handleApprove={handleApprove} handleDeny={handleDeny} handleFeedback={handleFeedback} openModal={openModal} closeModal={closeModal} ></SingleClass>)
               }
             </tbody>
           </table>
@@ -129,7 +137,7 @@ const ManageClasses = () => {
       </section>
 
       {/* FeedbackModal */}
-      <FeedbackModal isOpen={isOpen} openModal={openModal} closeModal={closeModal}></FeedbackModal>
+      <FeedbackModal isOpen={isOpen} openModal={openModal} closeModal={closeModal} feedbackID={feedbackID}></FeedbackModal>
     </>
   );
 };

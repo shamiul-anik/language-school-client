@@ -3,7 +3,7 @@ import { LuShieldClose } from "react-icons/lu";
 import { VscFeedback } from "react-icons/vsc";
 // import { Link } from "react-router-dom";
 
-const SingleClass = ({ classData, index, openModal, handleApprove, handleDeny }) => {
+const SingleClass = ({ classData, index, openModal, handleApprove, handleDeny, handleFeedback }) => {
   // console.log(classData);
   const { class_name, class_image, instructor_name, instructor_email, available_seats, enrolled_students, class_price, class_status } = classData || {};
   return (
@@ -48,7 +48,7 @@ const SingleClass = ({ classData, index, openModal, handleApprove, handleDeny })
           <LuShieldClose className='gr-icon w-4 h-4 mr-2' />
           Deny
         </button>
-        <button onClick={openModal} type="button" className="flex w-40 mx-auto mt-2 justify-center items-center text-white bg-gradient-to-br from-blue-500 to-blue-600 transition-all hover:duration-300 hover:from-blue-600 hover:to-blue-700 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-800 font-normal rounded-md text-md px-3 py-2 text-center disabled:from-slate-600 disabled:to-slate-700">
+        <button onClick={() => handleFeedback(classData)} type="button" className="flex w-40 mx-auto mt-2 justify-center items-center text-white bg-gradient-to-br from-blue-500 to-blue-600 transition-all hover:duration-300 hover:from-blue-600 hover:to-blue-700 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-800 font-normal rounded-md text-md px-3 py-2 text-center disabled:from-slate-600 disabled:to-slate-700">
           <VscFeedback className='gr-icon w-4 h-4 mr-2' />
           Send Feedback
         </button>

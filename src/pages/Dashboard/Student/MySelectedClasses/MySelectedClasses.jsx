@@ -4,6 +4,7 @@ import { AuthContext } from '../../../../providers/AuthProvider';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import MySelectedClass from './MySelectedClass';
+import Swal from 'sweetalert2';
 
 const MySelectedClasses = () => {
 
@@ -18,16 +19,49 @@ const MySelectedClasses = () => {
     queryFn: async () => {
       const res = await axios.get(`${import.meta.env.VITE_API_URL}/my-selected-classes/${user?.email}`);
       setLoading(false);
-      console.log(res?.data);
+      // console.log(res?.data);
       return res?.data;
     },
   });
+
+  const handleDeleteBooking = (id) => {
+    console.log("Delete booking ID:", id);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if (id) {
+          axios.delete(`${import.meta.env.VITE_API_URL}/delete-booking/${id}`).then(
+            (data) => {
+              console.log("Delete Status:", data?.data);
+              if (data?.data.deletedCount > 0) {
+                refetch();
+                Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: `Booking successfully deleted!`,
+                  showConfirmButton: false,
+                  timer: 3000
+                });
+              }
+            }
+          );
+        }
+      }
+    })
+  }
 
   return (
     <section className="max-w-7xl mx-auto mt-4 lg:mt-8 p-4 md:px-0">
 
       <div>
-        <h1 className="text-3xl font-bold text-center mb-6">Total Selected Class: {mySelectedClasses?.length}</h1>
+        <h1 className="text-3xl font-bold text-center mb-6">Total Selected Classes: {mySelectedClasses?.length}</h1>
       </div>
 
       <div className="relative overflow-x-auto">
@@ -68,7 +102,7 @@ const MySelectedClasses = () => {
           </thead>
           <tbody>
             {
-              mySelectedClasses?.map((mySelectedClass, index) => <MySelectedClass key={mySelectedClass._id} mySelectedClass={mySelectedClass} index={index}></MySelectedClass>)
+              mySelectedClasses?.map((mySelectedClass, index) => <MySelectedClass key={mySelectedClass._id} handleDeleteBooking={handleDeleteBooking} mySelectedClass={mySelectedClass} index={index}></MySelectedClass>)
             }
           </tbody>
         </table>

@@ -44,11 +44,9 @@ const Instructors = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8 mt-8">
-
           {
             allInstructors?.map((instructorData) => <InstructorCard key={instructorData._id} instructorData={instructorData}></InstructorCard>)
           }
-
         </div>
       </section>
     </div>

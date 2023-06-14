@@ -1,5 +1,3 @@
-import LazyLoad from 'react-lazy-load';
-import { Link } from 'react-router-dom';
 import SectionTitle from '../../../components/SectionTitle';
 import { useContext } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
@@ -21,7 +19,6 @@ const PopularClasses = () => {
       return res?.data;
     },
   });
-
 
   return (
     <section className="max-w-7xl mx-auto mt-12 lg:mt-32 p-4 md:px-0">

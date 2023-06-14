@@ -7,7 +7,7 @@ import Statistics from "./Statistics";
 import Newsletter from "./Newsletter";
 import Testimonial from "./Testimonial";
 import UpcomingCourse from "./UpcomingCourse";
-import PopularInstructors from "./PopularInstructors";
+import PopularInstructors from "./PopularInstructors/PopularInstructors";
 import PopularClasses from "./PopularClasses/PopularClasses";
 
 

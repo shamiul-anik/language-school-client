@@ -55,7 +55,40 @@ const MySelectedClasses = () => {
         }
       }
     })
-  }
+  };
+
+  const handlePayment = (bookingData) => {
+    // console.log("Inside Payment: ", bookingData._id);
+    Swal.fire({
+      title: 'Are you sure?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Make Payment'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if (bookingData) {
+          axios.patch(`${import.meta.env.VITE_API_URL}/payment/${bookingData._id}`).then(
+            (data) => {
+              console.log("Payment Status:", data?.data);
+              if (data?.data.modifiedCount) {
+                refetch();
+                Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: `Payment successful!`,
+                  showConfirmButton: false,
+                  timer: 3000
+                });
+              }
+            }
+          );
+        }
+      }
+    })
+
+  };
 
   return (
     <section className="max-w-7xl mx-auto mt-4 lg:mt-8 p-4 md:px-0">
@@ -102,7 +135,7 @@ const MySelectedClasses = () => {
           </thead>
           <tbody>
             {
-              mySelectedClasses?.map((mySelectedClass, index) => <MySelectedClass key={mySelectedClass._id} handleDeleteBooking={handleDeleteBooking} mySelectedClass={mySelectedClass} index={index}></MySelectedClass>)
+              mySelectedClasses?.map((mySelectedClass, index) => <MySelectedClass key={mySelectedClass._id} handlePayment={handlePayment} handleDeleteBooking={handleDeleteBooking} mySelectedClass={mySelectedClass} index={index}></MySelectedClass>)
             }
           </tbody>
         </table>

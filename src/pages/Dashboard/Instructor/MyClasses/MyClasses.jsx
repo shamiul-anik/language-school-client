@@ -3,8 +3,11 @@ import { AuthContext } from "../../../../providers/AuthProvider";
 import { useContext } from "react";
 import axios from "axios";
 import MySingleClass from "./MySingleClass";
+import { useTitle } from "../../../../hooks/useTitle";
 
 const MyClasses = () => {
+
+  useTitle("My Classes");
 
   const { user, setUserRole, loading, setLoading } = useContext(AuthContext);
 
@@ -25,7 +28,7 @@ const MyClasses = () => {
     <section className="max-w-7xl mx-auto mt-4 lg:mt-8 p-4 md:px-0">
 
       <div>
-        <h1 className="text-3xl font-bold text-center mb-6">Total Classes: {myClassDetails?.length}</h1>
+        <h1 className="text-3xl font-bold text-center mb-6">My Total Classes: {myClassDetails?.length}</h1>
       </div>
 
       <div className="relative overflow-x-auto">

@@ -5,8 +5,11 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { AuthContext } from "../../../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { useTitle } from "../../../../hooks/useTitle";
 
 const ManageClasses = () => {
+  
+  useTitle("Manage Classes");
 
   const { user, setUserRole, loading, setLoading } = useContext(AuthContext);
   

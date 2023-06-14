@@ -5,8 +5,11 @@ import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useTitle } from '../../../../hooks/useTitle';
 
 const AddClass = () => {
+
+  useTitle("Add a Class");
 
   const { user } = useContext(AuthContext);
 

@@ -1,8 +1,12 @@
 import Lottie from "lottie-react";
 import Loading from '../../assets/lottie/dashboard.json';
 import { Fade } from "react-awesome-reveal";
+import { useTitle } from "../../hooks/useTitle";
 
 const Dashboard = () => {
+
+  useTitle("Dashboard");
+
   return (
     <div className="min-h-[calc(100dvh-40px)] grid place-content-center">
       <header>

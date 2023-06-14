@@ -4,8 +4,11 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
 import SingleUser from "./SingleUser";
 import Swal from "sweetalert2";
+import { useTitle } from "../../../../hooks/useTitle";
 
 const ManageUsers = () => {
+
+  useTitle("Manage Users");
 
   const { user, setUserRole, loading, setLoading } = useContext(AuthContext);
   // const [disableInstructorBtn, setDisableInstructorBtn] = useState(false);

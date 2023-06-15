@@ -12,6 +12,19 @@ const MySelectedClasses = () => {
 
   const { user, userRole, setUserRole, loading, setLoading } = useContext(AuthContext);
 
+  // Getting Available Seats and Total Number of Enrolled Students
+  // const { data: seatDetails = [], refetch: refetchSeats } = useQuery({
+  //   queryKey: ["seatDetails", user?.email],
+  //   enabled: !loading,
+  //   queryFn: async () => {
+  //     const res = await axios.get(`${import.meta.env.VITE_API_URL}/my-classes/${user?.email}`);
+  //     setLoading(false);
+  //     // console.log(res?.data);
+  //     return res?.data;
+  //   },
+  // });
+
+
   // TODO: Change to AxiosSecure
   const { data: mySelectedClasses = [], refetch } = useQuery({
     queryKey: ["mySelectedClasses", user?.email, userRole],
@@ -69,7 +82,7 @@ const MySelectedClasses = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         if (bookingData) {
-          axios.patch(`${import.meta.env.VITE_API_URL}/payment/${bookingData._id}`).then(
+          axios.patch(`${import.meta.env.VITE_API_URL}/make-payment/${bookingData._id}?classId=${bookingData.class_id}`).then(
             (data) => {
               console.log("Payment Status:", data?.data);
               if (data?.data.modifiedCount) {
@@ -116,12 +129,12 @@ const MySelectedClasses = () => {
               <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Instructor <br /> Email
               </th>
-              <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
+              {/* <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Available <br /> Seats
               </th>
               <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Enrolled <br /> Students
-              </th>
+              </th> */}
               <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Price
               </th>

@@ -50,9 +50,21 @@ const AuthProvider = ({ children }) => {
 	}
 	
 	useEffect(() => {
-		const unSubscribe = onAuthStateChanged(auth, (loggedInUser) => {
-			console.log('Auth Change Observer', loggedInUser)
-			setUser(loggedInUser);
+		const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+			console.log('Auth Change Observer', currentUser)
+			setUser(currentUser);
+			// get and set token
+			if (currentUser) {
+				axios.post(`${import.meta.env.VITE_API_URL}/jwt`, { email: currentUser.email })
+					.then(data => {
+						// console.log(data.data.token)
+						localStorage.setItem('access-token', data?.data?.token)
+						setLoading(false);
+					})
+			}
+			else {
+				localStorage.removeItem('access-token')
+			}
 			setLoading(false);
 		})
 

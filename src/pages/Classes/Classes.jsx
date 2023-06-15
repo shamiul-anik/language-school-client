@@ -64,7 +64,7 @@ const Classes = () => {
               Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'Class selected successfully!',
+                title: 'Class booked successfully!',
                 showConfirmButton: true,
                 timer: 3000
               })

@@ -49,12 +49,12 @@ const MyPaymentHistory = () => {
               <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Instructor <br /> Email
               </th>
-              <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
+              {/* <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Available <br /> Seats
               </th>
               <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Enrolled <br /> Students
-              </th>
+              </th> */}
               <th scope="col" className="text-center bg-gray-100 px-3 py-4 border-b-2 border-r-2">
                 Price
               </th>

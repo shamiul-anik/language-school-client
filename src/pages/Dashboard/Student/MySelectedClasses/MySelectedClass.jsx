@@ -26,12 +26,12 @@ const MySelectedClass = ({ mySelectedClass, index, handleDeleteBooking, handlePa
       <td className="px-2 py-2 text-center border-r-2">
         {instructor_email}
       </td>
-      <td className="px-2 py-2 text-center border-r-2">
+      {/* <td className="px-2 py-2 text-center border-r-2">
         {available_seats}
       </td>
       <td className="px-2 py-2 text-center border-r-2">
         {enrolled_students}
-      </td>
+      </td> */}
       <td className="px-2 py-2 text-center border-r-2">
         ${class_price}
       </td>

@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import { Navigate, useLocation } from 'react-router';
 import Loader from '../pages/shared/Loader/Loader';
-import { toast } from 'react-toastify';
 
 const PrivateRoute = ({ children }) => {
 
@@ -13,10 +12,6 @@ const PrivateRoute = ({ children }) => {
 
 	if (loading) {
 		return <Loader></Loader>
-	}
-
-	if(!user) {
-		toast.warning("You must login to visit this page!")
 	}
 
 	if (user) {

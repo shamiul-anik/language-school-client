@@ -47,6 +47,7 @@ https://language-school-server-production.up.railway.app/
 20. AOS animation added on different sections of Home page.
 21. React Awesome Reveal animation added on Banner of Home, Instructors, Classes, About, Contact and Dashboard pages.
 22. React Icons added.
+23. React Helmet Async used for SEO optimization.
 
 ## Packages/Services/Font Used:
 <table>
@@ -152,6 +153,11 @@ https://language-school-server-production.up.railway.app/
       <td align="center">19</td>
       <td>React Awesome Reveal</td>
       <td>https://react-awesome-reveal.morello.dev/docs/getting-started</td>
+    </tr>
+    <tr>
+      <td align="center">20</td>
+      <td>React Helmet Async</td>
+      <td>https://www.npmjs.com/package/react-helmet-async</td>
     </tr>
     <!-- <tr>
       <td align="center">12</td>

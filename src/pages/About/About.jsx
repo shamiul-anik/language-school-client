@@ -3,13 +3,17 @@ import { useTitle } from '../../hooks/useTitle';
 import FAQsImage from '../../assets/images/faqs.jpg'
 import { Link } from 'react-router-dom';
 import CommonBanner from '../../components/CommonBanner';
+import ReactHelmet from '../../components/reactHelmet';
 
 const About = () => {
 
-	useTitle("About");
+	// useTitle("About");
 	
 	return (
 		<div>
+
+			<ReactHelmet documentTitle="Language School | About" metaDescription="About"></ReactHelmet>
+
 			{/* About Us Banner */}
 			<CommonBanner bannerHeading="About Us"></CommonBanner>
 

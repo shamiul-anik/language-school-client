@@ -79,7 +79,7 @@ const ManageUsers = () => {
   };
 
   return (
-    <section className="max-w-7xl mx-auto mt-4 lg:mt-8 p-4 md:px-0">
+    <section className="max-w-full mx-auto mt-4 lg:mt-8 p-4 md:px-0">
       
       <div>
         <h1 className="text-3xl font-bold text-center mb-6">Total Users: {usersData.length}</h1>

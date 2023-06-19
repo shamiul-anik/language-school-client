@@ -1,18 +1,17 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import FeedbackModal from "./FeedbackModal";
 import SingleClass from "./SingleClass";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import { AuthContext } from "../../../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useTitle } from "../../../../hooks/useTitle";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useAuth from "../../../../hooks/useAuth";
 
 const ManageClasses = () => {
   
   useTitle("Manage Classes");
 
-  const { user, setUserRole, loading, setLoading } = useContext(AuthContext);
+  const { user, loading, setLoading } = useAuth();
   const [axiosSecure] = useAxiosSecure();
   
   // Feedback Modal Open/Close State
@@ -28,7 +27,7 @@ const ManageClasses = () => {
 
   // Closing Feedback Modal
   const closeModal = () => {
-    setIsOpen(false)
+    setIsOpen(false);
   };
 
   // TODO: Change to AxiosSecure
@@ -47,7 +46,7 @@ const ManageClasses = () => {
   const handleApprove = (classData) => {
     console.log("Inside Approve: ", classData._id);
     if (classData) {
-      axios.patch(`${import.meta.env.VITE_API_URL}/class/approved/${classData._id}`).then(
+      axiosSecure.patch(`/admin/approve-class/${classData._id}`).then(
         (data) => {
           console.log("Approve Status:", data?.data);
           if (data?.data.modifiedCount) {
@@ -68,7 +67,7 @@ const ManageClasses = () => {
   const handleDeny = (classData) => {
     console.log("Inside Deny: ", classData._id);
     if (classData) {
-      axios.patch(`${import.meta.env.VITE_API_URL}/class/denied/${classData._id}`).then(
+      axiosSecure.patch(`/admin/deny-class/${classData._id}`).then(
         (data) => {
           console.log("Deny Status:", data?.data);
           if (data?.data.modifiedCount) {

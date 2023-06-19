@@ -1,17 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import { useContext, useState } from "react";
-import { AuthContext } from "../../../../providers/AuthProvider";
 import SingleUser from "./SingleUser";
 import Swal from "sweetalert2";
 import { useTitle } from "../../../../hooks/useTitle";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useAuth from "../../../../hooks/useAuth";
 
 const ManageUsers = () => {
 
   useTitle("Manage Users");
 
-  const { user, setUserRole, loading, setLoading } = useContext(AuthContext);
+  const { user, setUserRole, loading, setLoading } = useAuth();
   // const [disableInstructorBtn, setDisableInstructorBtn] = useState(false);
   // const [disableAdminBtn, setDisableAdminBtn] = useState(false);
   const [axiosSecure] = useAxiosSecure();
@@ -22,7 +20,7 @@ const ManageUsers = () => {
     enabled: !loading,
     queryFn: async () => {
       // const res = await axios.get(`${import.meta.env.VITE_API_URL}/users`);
-      const res = await axiosSecure(`/admin/manage-users`);
+      const res = await axiosSecure.get(`/admin/manage-users`);
       // console.log(res);
       setLoading(false);
       return res?.data;

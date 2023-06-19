@@ -1,26 +1,28 @@
 import { Dialog, Transition } from '@headlessui/react'
-import axios from 'axios';
 import { Fragment } from 'react'
 import { useForm } from 'react-hook-form';
 import { BsSendCheckFill } from 'react-icons/bs';
 import { FaTimesCircle } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 
 const FeedbackModal = ({ isOpen, closeModal, feedbackID, refetch }) => {
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
+  const [axiosSecure] = useAxiosSecure();
+
   const onSubmit = (feedback) => { 
     // console.log("Feedback ID: ", feedbackID);
     // console.log("Feedback: ", feedback);
     if (feedbackID && feedback) {
-      axios.patch(`${import.meta.env.VITE_API_URL}/feedback/${feedbackID}`, feedback)
+      axiosSecure.patch(`/admin/send-feedback/${feedbackID}`, feedback)
         .then((data) => {
           console.log(data.data);
           if (data?.data?.modifiedCount) {
-            refetch();
-            reset();
             closeModal();
+            reset();
+            refetch();
             Swal.fire({
               position: 'center',
               icon: 'success',
@@ -72,7 +74,7 @@ const FeedbackModal = ({ isOpen, closeModal, feedbackID, refetch }) => {
                     <label className="label pl-0" htmlFor="adminFeedback">
                       <span className="label-text text-md md:text-[16px]">Message</span>
                     </label>
-                    <textarea id="adminFeedback" {...register("admin_feedback", { required: true })} name="admin_feedback" rows="6" className="input input-bordered focus:outline-teal-500 focus:border-teal-200 focus:ring-teal-400 text-[14px] h-auto" placeholder="Enter your message"></textarea>
+                    <textarea id="adminFeedback" {...register("admin_feedback", { required: true })} name="admin_feedback" rows="6" className="input input-bordered focus:outline-slate-500 focus:border-slate-200 focus:ring-slate-400 text-[14px] h-auto" placeholder="Enter your message"></textarea>
                     {errors?.admin_feedback && <p className="text-red-500 mt-2">Message is required!</p>} {/* Error Message */}
                   </div>
                 </div>

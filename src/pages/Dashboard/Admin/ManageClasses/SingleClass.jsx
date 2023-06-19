@@ -3,7 +3,7 @@ import { LuShieldClose } from "react-icons/lu";
 import { VscFeedback } from "react-icons/vsc";
 // import { Link } from "react-router-dom";
 
-const SingleClass = ({ classData, index, openModal, handleApprove, handleDeny, handleFeedback }) => {
+const SingleClass = ({ classData, index, handleApprove, handleDeny, handleFeedback }) => {
   // console.log(classData);
   const { class_name, class_image, instructor_name, instructor_email, available_seats, enrolled_students, class_price, class_status } = classData || {};
   return (

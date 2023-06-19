@@ -5,6 +5,7 @@ import { AuthContext } from "../../../../providers/AuthProvider";
 import SingleUser from "./SingleUser";
 import Swal from "sweetalert2";
 import { useTitle } from "../../../../hooks/useTitle";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const ManageUsers = () => {
 
@@ -13,13 +14,16 @@ const ManageUsers = () => {
   const { user, setUserRole, loading, setLoading } = useContext(AuthContext);
   // const [disableInstructorBtn, setDisableInstructorBtn] = useState(false);
   // const [disableAdminBtn, setDisableAdminBtn] = useState(false);
+  const [axiosSecure] = useAxiosSecure();
 
   // TODO: Change to AxiosSecure
   const { data: usersData = [], refetch } = useQuery({
     queryKey: ["usersData", user?.email],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/users`);
+      // const res = await axios.get(`${import.meta.env.VITE_API_URL}/users`);
+      const res = await axiosSecure(`/admin/manage-users`);
+      // console.log(res);
       setLoading(false);
       return res?.data;
     },
@@ -28,7 +32,7 @@ const ManageUsers = () => {
   const handleMakeInstructor = (userInfo) => {
     console.log("Inside Make Instructor: ", user._id);
     if (userInfo) {
-      axios.patch(`${import.meta.env.VITE_API_URL}/user/instructor/${userInfo._id}`).then(
+      axiosSecure.patch(`/admin/make-instructor/${userInfo._id}`).then(
         (data) => {
           // console.log("Data:", data?.data);
           if (data?.data.modifiedCount) {
@@ -53,7 +57,7 @@ const ManageUsers = () => {
   const handleMakeAdmin = (userInfo) => {
     console.log("Inside Make Admin: ", user._id);
     if (userInfo) {
-      axios.patch(`${import.meta.env.VITE_API_URL}/user/admin/${userInfo._id}`).then(
+      axiosSecure.patch(`/admin/make-admin/${userInfo._id}`).then(
         (data) => {
           // console.log("Data:", data?.data);
           if(data?.data.modifiedCount) {

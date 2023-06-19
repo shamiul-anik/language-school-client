@@ -6,21 +6,27 @@ import axios from "axios";
 import { AuthContext } from "../../../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useTitle } from "../../../../hooks/useTitle";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const ManageClasses = () => {
   
   useTitle("Manage Classes");
 
   const { user, setUserRole, loading, setLoading } = useContext(AuthContext);
+  const [axiosSecure] = useAxiosSecure();
   
+  // Feedback Modal Open/Close State
   const [isOpen, setIsOpen] = useState(false);
-  
+
+  // Setting Class ID for Feedback
   const [feedbackID, setFeedbackID] = useState("");
 
+  // Opening Feedback Modal
   const openModal = () => {
     setIsOpen(true);
   };
 
+  // Closing Feedback Modal
   const closeModal = () => {
     setIsOpen(false)
   };
@@ -30,7 +36,8 @@ const ManageClasses = () => {
     queryKey: ["allClassData", user?.email],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/classes`);
+      // const res = await axios.get(`${import.meta.env.VITE_API_URL}/classes`);
+      const res = await axiosSecure.get(`/admin/manage-classes`);
       setLoading(false);
       // console.log(res?.data);
       return res?.data;

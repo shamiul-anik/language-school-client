@@ -39,7 +39,7 @@ const Login = () => {
 				const loggedUser = result.user;
 				console.log(loggedUser);
 				toast.success("Successfully logged in!");
-				navigate(from, { replace: true })
+				navigate(from, { replace: true });
 			})
 			.catch(error => {
 				setError(error.message);

@@ -1,29 +1,24 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
-import { AuthContext } from '../../../providers/AuthProvider'
 import Aos from 'aos';
 import { Fade } from "react-awesome-reveal";
 import Logo from '../../../assets/images/logo.png';
 import UserImage from '../../../assets/images/user.png'
-import { RiDashboardFill } from "react-icons/ri";
 import { BsBookmarkCheckFill } from 'react-icons/bs'
 import { toast } from 'react-toastify';
 import { BiDetail, BiHome, BiLogOut } from 'react-icons/bi';
 import { ImProfile } from 'react-icons/im';
 import { GiTeacher } from 'react-icons/gi';
 import { LuContact } from 'react-icons/lu';
-import { FaBook, FaBookMedical, FaBookOpen, FaChalkboardTeacher, FaCheckDouble, FaMoneyCheck, FaUserCheck, FaWallet } from 'react-icons/fa';
+import { FaBook, FaBookMedical, FaChalkboardTeacher, FaCheckDouble, FaMoneyCheck, FaUserCheck, FaWallet } from 'react-icons/fa';
 import { AiOutlineBars } from 'react-icons/ai';
+import useAuth from '../../../hooks/useAuth';
 
 const Sidebar = () => {
   
-  const { user, userRole, setUserRole, loading, setLoading, logOut } = useContext(AuthContext);
+  const { user, userRole, setUserRole, loading, setLoading, logOut } = useAuth();
   const navigate = useNavigate();
   const [isActive, setActive] = useState('false');
-
-  // setUserRole("student");
-  // setUserRole("instructor");
-  // setUserRole("admin");
 
   useEffect(() => {
     Aos.init({ duration: 1000 });
@@ -38,6 +33,7 @@ const Sidebar = () => {
     logOut()
       .then(() => {
         toast.success("Successfully logged out!");
+        setLoading(false);
         navigate("/");
       })
       .catch((error) => {

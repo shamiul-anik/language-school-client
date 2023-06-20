@@ -13,6 +13,7 @@ const AuthProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
 	const [userRole, setUserRole] = useState("");
 	const [loading, setLoading] = useState(true);
+	const [loadingRole, setLoadingRole] = useState(true);
 
 	useEffect(() => {
 		if(user) {
@@ -21,6 +22,7 @@ const AuthProvider = ({ children }) => {
 					setUserRole(data?.data?.role);
 				}
 			);
+			setLoadingRole(false);
 		}
 	}, [user]);
 
@@ -63,7 +65,8 @@ const AuthProvider = ({ children }) => {
 					})
 			}
 			else {
-				localStorage.removeItem('access-token')
+				localStorage.removeItem('access-token');
+				setLoading(false);
 			}
 		});
 
@@ -77,6 +80,7 @@ const AuthProvider = ({ children }) => {
 		setUser,
 		userRole, 
 		setUserRole,
+		loadingRole,
 		loading,
 		setLoading,
 		createUser,

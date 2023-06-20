@@ -2,25 +2,26 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Loader from "../pages/shared/Loader/Loader";
-// import DashboardLayout from "../layouts/DashboardLayout";
-// import Dashboard from "../pages/Dashboard/Dashboard";
-// import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
 
 const MainLayout = lazy(() => import("../layouts/MainLayout"));
+const DashboardLayout = lazy(() => import("../layouts/DashboardLayout"));
 const ErrorPage = lazy(() => import("../pages/shared/ErrorPage/ErrorPage"));
-const Home = lazy(() => import("../pages/Home/Home"));
 
-const PrivateRoute = lazy(() => import("./PrivateRoute"));
+const Home = lazy(() => import("../pages/Home/Home"));
 const Instructors = lazy(() => import("../pages/Instructors/Instructors"));
 const Classes = lazy(() => import("../pages/Classes/Classes"));
 const Contact = lazy(() => import("../pages/Contact/Contact"));
 const About = lazy(() => import("../pages/About/About"));
+
 const Login = lazy(() => import("../pages/Authentication/Login/Login"));
 const Registration = lazy(() => import("../pages/Authentication/Registration/Registration"));
 const PasswordReset = lazy(() => import("../pages/Authentication/PasswordReset/PasswordReset"));
 const Profile = lazy(() => import("../pages/Authentication/Profile/Profile"));
 
-const DashboardLayout = lazy(() => import("../layouts/DashboardLayout"));
+const PrivateRoute = lazy(() => import("./PrivateRoute"));
+const AdminRoute = lazy(() => import("./AdminRoute"));
+const InstructorRoute = lazy(() => import("./InstructorRoute"));
+
 const Dashboard = lazy(() => import("../pages/Dashboard/Dashboard"));
 const ManageUsers = lazy(() => import("../pages/Dashboard/Admin/ManageUsers/ManageUsers"));
 const ManageClasses = lazy(() => import("../pages/Dashboard/Admin/ManageClasses/ManageClasses"));
@@ -85,19 +86,19 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: '/dashboard/manage-users',
-				element: <Suspense fallback={<Loader></Loader>}><ManageUsers></ManageUsers></Suspense>,
+				element: <Suspense fallback={<Loader></Loader>}><AdminRoute><ManageUsers></ManageUsers></AdminRoute></Suspense>,
 			},
 			{
 				path: '/dashboard/manage-classes',
-				element: <Suspense fallback={<Loader></Loader>}><ManageClasses></ManageClasses></Suspense>,
+				element: <Suspense fallback={<Loader></Loader>}><AdminRoute><ManageClasses></ManageClasses></AdminRoute></Suspense>,
 			},
 			{
 				path: '/dashboard/add-a-class',
-				element: <Suspense fallback={<Loader></Loader>}><AddClass></AddClass></Suspense>,
+				element: <Suspense fallback={<Loader></Loader>}><InstructorRoute><AddClass></AddClass></InstructorRoute></Suspense>,
 			},
 			{
 				path: '/dashboard/my-classes',
-				element: <Suspense fallback={<Loader></Loader>}><MyClasses></MyClasses></Suspense>,
+				element: <Suspense fallback={<Loader></Loader>}><InstructorRoute><MyClasses></MyClasses></InstructorRoute></Suspense>,
 			},
 			{
 				path: '/dashboard/my-selected-classes',

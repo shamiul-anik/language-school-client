@@ -138,14 +138,14 @@ const Registration = () => {
 								<label className="label pl-0" htmlFor="name">
 									<span className="label-text text-lg">Name</span>
 								</label>
-								<input type="text" {...register("name", { required: true })} id="name" name="name" placeholder="Enter your name" className="input input-bordered" />
+								<input type="text" {...register("name", { required: true })} id="name" name="name" placeholder="Enter your name" className="input input-bordered input-accent focus:ring-0 focus:border-teal-500" />
 								{errors?.name && <p className="text-red-500 mt-2">Name is required!</p>} {/* Error Message */}
 							</div>
 							<div className="form-control">
 								<label className="label pl-0" htmlFor="email">
 									<span className="label-text text-lg">Email</span>
 								</label>
-								<input type="email" {...register("email", { required: true })} id="email" name="email" placeholder="Enter your email address" className="input input-bordered" />
+								<input type="email" {...register("email", { required: true })} id="email" name="email" placeholder="Enter your email address" className="input input-bordered input-accent focus:ring-0 focus:border-teal-500" />
 								{errors?.email && <p className="text-red-500 mt-2">Email is required!</p>} {/* Error Message */}
 							</div>	
 						</div>
@@ -161,7 +161,7 @@ const Registration = () => {
 										minLength: 6,
 										pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[a-z])/
 									})}
-									id="password" name="password" placeholder="Enter your password" className="input input-bordered" autoComplete='true' 
+									id="password" name="password" placeholder="Enter your password" className="input input-bordered input-accent focus:ring-0 focus:border-teal-500" autoComplete='true' 
 								/>
 								<button onClick={handleShowPassword} className="btn btn-ghost absolute top-11 right-0 rounded-l-none">
 									{
@@ -186,7 +186,7 @@ const Registration = () => {
 											}
 										}
 									})}
-									id="confirmPassword" name="confirmPassword" placeholder="Please confirm your password" className="input input-bordered" autoComplete='true' 
+									id="confirmPassword" name="confirmPassword" placeholder="Please confirm your password" className="input input-bordered input-accent focus:ring-0 focus:border-teal-500" autoComplete='true' 
 								/>
 								<button onClick={handleShowConfirmPassword} className="btn btn-ghost absolute top-11 right-0 rounded-l-none">
 									{
@@ -203,7 +203,7 @@ const Registration = () => {
 							<label className="label pl-0" htmlFor="photoURL">
 								<span className="label-text text-lg">Photo URL</span>
 							</label>
-							<input type="text" {...register("photoURL", { required: true })} id="photoURL" name="photoURL" placeholder="Enter your photo url" className="input input-bordered" />
+							<input type="text" {...register("photoURL", { required: true })} id="photoURL" name="photoURL" placeholder="Enter your photo url" className="input input-bordered input-accent focus:ring-0 focus:border-teal-500" />
 							{/* <input type="file" id="image" name="image" accept="image/*" className="file-input file-input-bordered file-input-accent w-full" /> */}
 							{/* <p className="text-red-500 mt-2">{imageError}</p> */}
 							{errors?.photoURL && <p className="text-red-500 mt-2">Photo URL is required!</p>} {/* Error Message */}

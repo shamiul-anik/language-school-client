@@ -78,14 +78,14 @@ const Profile = () => {
               <label className="label pl-0" htmlFor="name">
                 <span className="label-text text-lg">Name</span>
               </label>
-              <input type="text" id="name" name="name" placeholder="Enter your name" className="input input-bordered read-only:bg-slate-100" defaultValue={currentUserName} />
+              <input type="text" id="name" name="name" placeholder="Enter your name" className="input input-bordered input-accent focus:ring-0 focus:border-teal-500 read-only:bg-slate-100" defaultValue={currentUserName} />
               <p className="text-red-500 mt-2"></p>
             </div>
             <div className="form-control">
               <label className="label pl-0" htmlFor="photoURL">
                 <span className="label-text text-lg">Photo URL</span>
               </label>
-              <input type="text" id="photoURL" name="photoURL" placeholder="Enter your photo url" className="input input-bordered read-only:bg-slate-100" defaultValue={currentUserPhotoURL ? currentUserPhotoURL : ""} />
+              <input type="text" id="photoURL" name="photoURL" placeholder="Enter your photo url" className="input input-bordered input-accent focus:ring-0 focus:border-teal-500 read-only:bg-slate-100" defaultValue={currentUserPhotoURL ? currentUserPhotoURL : ""} />
               <p className="text-red-500 mt-2"></p>
             </div>
             <div className="form-control mt-4">

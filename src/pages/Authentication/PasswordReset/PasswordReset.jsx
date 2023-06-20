@@ -78,7 +78,7 @@ const PasswordReset = () => {
               <label className="label pl-0" htmlFor="email">
                 <span className="label-text text-lg">Email</span>
               </label>
-              <input type="email" id="email" name="email" placeholder="Enter your email address" className={emailError ? "input input-error" : "input input-bordered"} />
+              <input type="email" id="email" name="email" placeholder="Enter your email address" className={emailError ? "input input-error focus:ring-0 focus:border-red-500" : "input input-bordered input-accent focus:ring-0 focus:border-teal-500"} />
               <p className="text-red-500 mt-2">{emailError}</p>
             </div>
             <div className="form-control mt-4">

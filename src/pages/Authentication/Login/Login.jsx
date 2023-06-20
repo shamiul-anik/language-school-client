@@ -94,7 +94,7 @@ const Login = () => {
 							<label className="label pl-0" htmlFor="email">
 								<span className="label-text text-lg">Email</span>
 							</label>
-							<input type="email" {...register("email", { required: true })} id="email" name="email" placeholder="Enter your email address" className="input input-bordered" required />
+							<input type="email" {...register("email", { required: true })} id="email" name="email" placeholder="Enter your email address" className="input input-bordered input-accent focus:ring-0 focus:border-teal-500" required />
 							{/* <p className="text-red-500 mt-2"></p> */}
 							{errors?.email && <p className="text-red-500 mt-2">Email is required!</p>} {/* Error Message */}
 						</div>
@@ -103,7 +103,7 @@ const Login = () => {
 							<label className="label pl-0" htmlFor="password">
 								<span className="label-text text-lg">Password</span>
 							</label>
-							<input type={showPassword ? "text" : "password"} {...register("password", { required: true })} id="password" name="password" placeholder="Enter your password" className="input input-bordered" autoComplete='true' required />
+							<input type={showPassword ? "text" : "password"} {...register("password", { required: true })} id="password" name="password" placeholder="Enter your password" className="input input-bordered input-accent focus:ring-0 focus:border-teal-500" autoComplete='true' required />
 							<button onClick={handleShowPassword} className="btn btn-ghost absolute bottom-0 right-0 rounded-l-none">
 								{
 									showPassword ? <FaRegEyeSlash className='text-lg md:text-xl font-bold' /> : <FaRegEye className='text-lg md:text-xl font-bold' />

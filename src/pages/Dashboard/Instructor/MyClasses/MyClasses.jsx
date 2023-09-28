@@ -1,15 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import { AuthContext } from "../../../../providers/AuthProvider";
-import { useContext } from "react";
 import axios from "axios";
 import MySingleClass from "./MySingleClass";
 import { useTitle } from "../../../../hooks/useTitle";
+import useAuth from "../../../../hooks/useAuth";
 
 const MyClasses = () => {
 
   useTitle("My Classes");
 
-  const { user, setUserRole, loading, setLoading } = useContext(AuthContext);
+  const { user, setUserRole, loading, setLoading } = useAuth();
 
   // TODO: Change to AxiosSecure
   const { data: myClassDetails = [], refetch } = useQuery({

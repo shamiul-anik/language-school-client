@@ -12,7 +12,7 @@ export const saveUser = (user) => {
   console.log("User from Save User", currentUser);
 
   axios.put(`${import.meta.env.VITE_API_URL}/users/${user?.email}`, currentUser)
-  .then((data) => console.log("Data of Save User", data));
+  .then((data) => console.log("Data of Saved User", data));
 }
 
 // Using Fetch

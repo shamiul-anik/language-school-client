@@ -1,17 +1,16 @@
 import AddClassImage from '../../../../assets/images/language-banner.jpg';
 import { Fade } from "react-awesome-reveal";
-import { AuthContext } from '../../../../providers/AuthProvider';
-import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useTitle } from '../../../../hooks/useTitle';
+import useAuth from '../../../../hooks/useAuth';
 
 const AddClass = () => {
 
   useTitle("Add a Class");
 
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
 
   const { register, reset, handleSubmit, formState: { errors } } = useForm();
 

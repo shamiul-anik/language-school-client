@@ -1,5 +1,4 @@
 import { Accordion } from 'flowbite-react';
-import { useTitle } from '../../hooks/useTitle';
 import FAQsImage from '../../assets/images/faqs.jpg'
 import { Link } from 'react-router-dom';
 import CommonBanner from '../../components/CommonBanner';
@@ -7,8 +6,6 @@ import ReactHelmet from '../../components/reactHelmet';
 
 const About = () => {
 
-	// useTitle("About");
-	
 	return (
 		<div>
 

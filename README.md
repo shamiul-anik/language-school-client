@@ -17,7 +17,7 @@ https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-sh
 
 
 ## API Link:
-https://language-school-server-production.up.railway.app/
+https://language-school-server-shamiul.vercel.app
 
 ### All Course Details :
 #### Vercel : 
